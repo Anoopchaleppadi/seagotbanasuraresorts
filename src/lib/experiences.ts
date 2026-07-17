@@ -1,3 +1,7 @@
+import villaStandardImg from "@/assets/villa-standard.jpg";
+import villaDeluxeImg from "@/assets/villa-deluxe.jpg";
+import villaThreeImg from "@/assets/villa-three.jpg";
+import villaPresidentialImg from "@/assets/villa-presidential.jpg";
 import expZipline from "@/assets/exp-zipline.jpg";
 import expCampfire from "@/assets/exp-campfire.jpg";
 import expTrek from "@/assets/exp-trek.jpg";
@@ -52,20 +56,16 @@ export const ATTRACTIONS: Attraction[] = [
 export const GALLERY: { src: string; category: string; alt: string }[] = [
   { src: aerial, category: "Drone", alt: "Aerial view of Seagot Banasura resort" },
   { src: pool, category: "Pool", alt: "Infinity pool at sunset" },
-  { src: villaStandardImg, category: "Villas", alt: "Standard villa exterior" },
-  { src: villaDeluxeImg, category: "Rooms", alt: "Deluxe villa bedroom" },
-  { src: villaThreeImg, category: "Villas", alt: "Three bedroom villa balcony" },
+  { src: villaStandardImg, category: "Villas", alt: "Standard villa exterior at twilight" },
+  { src: villaDeluxeImg, category: "Rooms", alt: "Deluxe villa bedroom with lake view" },
+  { src: villaThreeImg, category: "Villas", alt: "Three bedroom villa private balcony" },
   { src: villaPresidentialImg, category: "Rooms", alt: "Presidential villa living room" },
   { src: expRestaurant, category: "Restaurant", alt: "Lakeside restaurant interior" },
   { src: expZipline, category: "Adventure", alt: "Zipline over the lake" },
   { src: expTrek, category: "Nature", alt: "Sunrise trek at Chembra Peak" },
   { src: expCampfire, category: "Nature", alt: "Evening campfire over the lake" },
-  { src: attrBanasura, category: "Nature", alt: "Banasura Sagar Dam aerial" },
+  { src: attrBanasura, category: "Drone", alt: "Banasura Sagar Dam aerial" },
   { src: attrWaterfall, category: "Nature", alt: "Soochipara Waterfalls" },
 ];
 
-// helper imports need to be at bottom because of TS hoisting concerns for consts
-import villaStandardImg from "@/assets/villa-standard.jpg";
-import villaDeluxeImg from "@/assets/villa-deluxe.jpg";
-import villaThreeImg from "@/assets/villa-three.jpg";
-import villaPresidentialImg from "@/assets/villa-presidential.jpg";
+export const GALLERY_CATEGORIES = ["All", "Villas", "Rooms", "Pool", "Adventure", "Restaurant", "Nature", "Drone"];
