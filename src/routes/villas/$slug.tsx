@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowRight, BedDouble, Users, Bath, Sparkles, Check, MapPin, MessageCircle } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
-import { getVilla, VILLAS } from "@/lib/villas";
+import { getVilla, VILLAS, type Villa } from "@/lib/villas";
 import { ATTRACTIONS } from "@/lib/experiences";
 import { RESORT, waLink, telLink } from "@/lib/resort";
 
@@ -69,7 +69,7 @@ export const Route = createFileRoute("/villas/$slug")({
 });
 
 function VillaDetail() {
-  const { villa: v } = Route.useLoaderData();
+  const { villa: v } = Route.useLoaderData() as { villa: Villa };
   const others = VILLAS.filter((x) => x.slug !== v.slug).slice(0, 3);
 
   const waMessage = `🏡 Villa Enquiry\n\nVilla: ${v.name}\nCapacity: ${v.capacity}\nPrice: ₹${v.price.toLocaleString("en-IN")}/night\n\nPlease share availability.`;

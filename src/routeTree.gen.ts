@@ -9,38 +9,98 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as ExperiencesRouteImport } from './routes/experiences'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as VillasIndexRouteImport } from './routes/villas/index'
+import { Route as VillasSlugRouteImport } from './routes/villas/$slug'
 
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExperiencesRoute = ExperiencesRouteImport.update({
+  id: '/experiences',
+  path: '/experiences',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VillasIndexRoute = VillasIndexRouteImport.update({
+  id: '/villas/',
+  path: '/villas/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VillasSlugRoute = VillasSlugRouteImport.update({
+  id: '/villas/$slug',
+  path: '/villas/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/experiences': typeof ExperiencesRoute
+  '/gallery': typeof GalleryRoute
+  '/villas/$slug': typeof VillasSlugRoute
+  '/villas/': typeof VillasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/experiences': typeof ExperiencesRoute
+  '/gallery': typeof GalleryRoute
+  '/villas/$slug': typeof VillasSlugRoute
+  '/villas': typeof VillasIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/experiences': typeof ExperiencesRoute
+  '/gallery': typeof GalleryRoute
+  '/villas/$slug': typeof VillasSlugRoute
+  '/villas/': typeof VillasIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/experiences' | '/gallery' | '/villas/$slug' | '/villas/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/experiences' | '/gallery' | '/villas/$slug' | '/villas'
+  id:
+    | '__root__'
+    | '/'
+    | '/experiences'
+    | '/gallery'
+    | '/villas/$slug'
+    | '/villas/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ExperiencesRoute: typeof ExperiencesRoute
+  GalleryRoute: typeof GalleryRoute
+  VillasSlugRoute: typeof VillasSlugRoute
+  VillasIndexRoute: typeof VillasIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experiences': {
+      id: '/experiences'
+      path: '/experiences'
+      fullPath: '/experiences'
+      preLoaderRoute: typeof ExperiencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +108,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/villas/': {
+      id: '/villas/'
+      path: '/villas'
+      fullPath: '/villas/'
+      preLoaderRoute: typeof VillasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/villas/$slug': {
+      id: '/villas/$slug'
+      path: '/villas/$slug'
+      fullPath: '/villas/$slug'
+      preLoaderRoute: typeof VillasSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ExperiencesRoute: ExperiencesRoute,
+  GalleryRoute: GalleryRoute,
+  VillasSlugRoute: VillasSlugRoute,
+  VillasIndexRoute: VillasIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
