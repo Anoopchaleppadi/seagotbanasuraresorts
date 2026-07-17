@@ -77,21 +77,60 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Seagot Banasura Resorts — Luxury Lake View Resort in Wayanad" },
+      {
+        name: "description",
+        content:
+          "Escape to Seagot Banasura Resorts — a luxury lake-view resort near Banasura Sagar Dam, Wayanad. Private villas, infinity pool, adventure, and Kerala hospitality.",
+      },
+      { name: "author", content: "Seagot Banasura Resorts" },
+      { property: "og:site_name", content: "Seagot Banasura Resorts" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      {
+        name: "keywords",
+        content:
+          "Luxury Resort Wayanad, Resort Near Banasura Sagar Dam, Lake View Resort Kerala, Family Resort Wayanad, Best Resort in Wayanad, Infinity Pool Resort Kerala, Group Stay Wayanad, Corporate Resort Wayanad, Nature Resort Kerala, Luxury Villas Wayanad",
+      },
+      { name: "theme-color", content: "#0f3d2e" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Resort",
+          name: "Seagot Banasura Resorts",
+          description:
+            "Luxury lake-view resort near Banasura Sagar Dam in Wayanad, Kerala with private villas, infinity pool and adventure experiences.",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Padinjarathara, Banasura Sagar Dam Road",
+            addressLocality: "Wayanad",
+            addressRegion: "Kerala",
+            postalCode: "673575",
+            addressCountry: "IN",
+          },
+          telephone: "+919747440404",
+          priceRange: "₹₹₹",
+          amenityFeature: [
+            { "@type": "LocationFeatureSpecification", name: "Infinity Pool" },
+            { "@type": "LocationFeatureSpecification", name: "Lake View" },
+            { "@type": "LocationFeatureSpecification", name: "Restaurant" },
+            { "@type": "LocationFeatureSpecification", name: "Adventure Activities" },
+          ],
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
