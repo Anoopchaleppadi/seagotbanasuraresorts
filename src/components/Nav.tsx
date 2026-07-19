@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { RESORT } from "@/lib/resort";
+import logoAsset from "@/assets/seagot-banasura-logo.png.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
@@ -29,11 +30,20 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Link to="/" className="group flex items-center gap-2">
+        <Link to="/" className="group flex items-center gap-3">
           <span
-            aria-hidden
-            className={`inline-block h-8 w-8 shrink-0 rounded-full bg-gradient-emerald shadow-luxe transition-transform group-hover:scale-105`}
-          />
+            className={`inline-flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white shadow-luxe ring-1 transition-transform group-hover:scale-105 ${
+              scrolled ? "ring-border" : "ring-white/40"
+            }`}
+          >
+            <img
+              src={logoAsset.url}
+              alt="Seagot Banasura Resorts logo"
+              className="h-11 w-11 object-contain"
+              loading="eager"
+              decoding="async"
+            />
+          </span>
           <span className="flex flex-col leading-none">
             <span
               className={`font-serif text-xl tracking-wide ${
