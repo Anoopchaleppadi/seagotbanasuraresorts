@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { RESORT, waLink, telLink } from "@/lib/resort";
+import logoAsset from "@/assets/seagot-banasura-logo.png.asset.json";
 
 export function Footer() {
   return (
