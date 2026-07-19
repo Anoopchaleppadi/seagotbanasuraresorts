@@ -10,8 +10,10 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-12 md:grid-cols-4">
           <div>
-            <div className="flex items-center gap-2">
-              <span className="h-8 w-8 rounded-full bg-gradient-gold shadow-gold-glow" />
+            <div className="flex items-center gap-3">
+              <span className="inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-white shadow-luxe ring-1 ring-white/30">
+                <img src={logoAsset.url} alt="Seagot Banasura Resorts logo" className="h-12 w-12 object-contain" loading="lazy" decoding="async" />
+              </span>
               <span className="font-serif text-2xl">Seagot Banasura</span>
             </div>
             <p className="mt-5 text-sm text-white/75">
