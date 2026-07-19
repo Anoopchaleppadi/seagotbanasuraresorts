@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
-import { MapPin, Phone, Mail, MessageCircle, ArrowRight, Car } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle, ArrowRight, Car, CheckCircle2, X, Copy } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
 import { RESORT, waLink, telLink } from "@/lib/resort";
