@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
-import { MapPin, Phone, Mail, MessageCircle, ArrowRight, Car } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle, ArrowRight, Car, CheckCircle2, X, Copy } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
 import { RESORT, waLink, telLink } from "@/lib/resort";
@@ -142,6 +142,7 @@ function ContactCard() {
 function BookingForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sending, setSending] = useState(false);
+  const [confirmation, setConfirmation] = useState<{ data: Booking; ref: string; message: string } | null>(null);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -173,7 +174,8 @@ function BookingForm() {
     }
     setErrors({});
     const d = parsed.data;
-    const msg = `🏡 *New Booking Enquiry*
+    const ref = `SBR-${Date.now().toString(36).toUpperCase().slice(-6)}`;
+    const msg = `🏡 *New Booking Enquiry* (Ref: ${ref})
 
 *Name:* ${d.name}
 *Mobile:* ${d.mobile}
@@ -191,11 +193,13 @@ function BookingForm() {
 *Special Requirements:* ${d.requests || "—"}
 
 Please contact me regarding availability.`;
-    window.open(waLink(msg), "_blank", "noopener");
+    setConfirmation({ data: d, ref, message: msg });
     setSending(false);
   };
 
+
   return (
+    <>
     <form onSubmit={onSubmit} className="glass rounded-3xl p-8 shadow-luxe">
       <span className="text-xs uppercase tracking-[0.28em] text-emerald">Booking Enquiry</span>
       <h2 className="mt-2 font-serif text-3xl text-emerald-deep">Reserve your villa</h2>
@@ -238,8 +242,105 @@ Please contact me regarding availability.`;
         </button>
       </div>
     </form>
+    {confirmation && (
+      <ConfirmationModal
+        ref={confirmation.ref}
+        data={confirmation.data}
+        message={confirmation.message}
+        onClose={() => setConfirmation(null)}
+      />
+    )}
+    </>
   );
 }
+
+function ConfirmationModal({
+  ref: refId,
+  data,
+  message,
+  onClose,
+}: {
+  ref: string;
+  data: Booking;
+  message: string;
+  onClose: () => void;
+}) {
+  const [copied, setCopied] = useState(false);
+  const nights = (() => {
+    const a = new Date(data.checkIn).getTime();
+    const b = new Date(data.checkOut).getTime();
+    const n = Math.round((b - a) / 86400000);
+    return Number.isFinite(n) && n > 0 ? n : 0;
+  })();
+  const copyRef = async () => {
+    try {
+      await navigator.clipboard.writeText(refId);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {}
+  };
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-emerald-deep/60 px-4 py-8 backdrop-blur-sm animate-fade-up" role="dialog" aria-modal="true" aria-labelledby="booking-confirm-title">
+      <div className="relative max-h-full w-full max-w-lg overflow-y-auto rounded-3xl bg-white p-8 shadow-luxe">
+        <button onClick={onClose} aria-label="Close" className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full text-charcoal/60 transition hover:bg-mist hover:text-charcoal">
+          <X size={18} />
+        </button>
+        <div className="flex flex-col items-center text-center">
+          <span className="grid h-16 w-16 place-items-center rounded-full bg-gradient-emerald text-white shadow-luxe">
+            <CheckCircle2 size={32} />
+          </span>
+          <span className="mt-5 text-xs uppercase tracking-[0.28em] text-emerald">Enquiry Received</span>
+          <h3 id="booking-confirm-title" className="mt-2 font-serif text-3xl text-emerald-deep">Thank you, {data.name.split(" ")[0]}.</h3>
+          <p className="mt-3 text-sm text-charcoal/75">
+            Your booking enquiry has been prepared. Our reservations team will confirm availability within minutes.
+          </p>
+          <button onClick={copyRef} className="mt-5 flex items-center gap-2 rounded-full border border-emerald/20 bg-mist px-4 py-2 text-xs uppercase tracking-[0.22em] text-emerald-deep transition hover:border-gold">
+            Ref: {refId} <Copy size={12} /> {copied && <span className="text-gold">Copied</span>}
+          </button>
+        </div>
+
+        <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 rounded-2xl border border-emerald/15 bg-mist/60 p-5 text-sm">
+          <Row label="Check-in" value={data.checkIn} />
+          <Row label="Check-out" value={data.checkOut} />
+          <Row label="Nights" value={nights ? String(nights) : "—"} />
+          <Row label="Rooms" value={String(data.rooms)} />
+          <Row label="Villa" value={data.villa || "Any"} />
+          <Row label="Group" value={data.groupType} />
+          <Row label="Adults" value={String(data.adults)} />
+          <Row label="Children" value={String(data.children612 + data.childrenU6)} />
+        </dl>
+
+        <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+          <button onClick={onClose} className="rounded-full border border-emerald/20 px-6 py-3 text-sm font-medium text-emerald-deep transition hover:border-gold">
+            Close
+          </button>
+          <a
+            href={waLink(message)}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-luxe"
+            onClick={() => setTimeout(onClose, 400)}
+          >
+            Confirm on WhatsApp <MessageCircle size={16} />
+          </a>
+        </div>
+        <p className="mt-4 text-center text-xs text-muted-foreground">
+          A confirmation copy will also be sent to {data.email}.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Row({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <dt className="text-[10px] uppercase tracking-[0.22em] text-emerald">{label}</dt>
+      <dd className="mt-1 text-charcoal/85">{value}</dd>
+    </div>
+  );
+}
+
 
 function Field({
   label, name, type = "text", error, required, className = "", defaultValue, min,
