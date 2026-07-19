@@ -142,6 +142,7 @@ function ContactCard() {
 function BookingForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sending, setSending] = useState(false);
+  const [confirmation, setConfirmation] = useState<{ data: Booking; ref: string; message: string } | null>(null);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -173,7 +174,8 @@ function BookingForm() {
     }
     setErrors({});
     const d = parsed.data;
-    const msg = `🏡 *New Booking Enquiry*
+    const ref = `SBR-${Date.now().toString(36).toUpperCase().slice(-6)}`;
+    const msg = `🏡 *New Booking Enquiry* (Ref: ${ref})
 
 *Name:* ${d.name}
 *Mobile:* ${d.mobile}
@@ -191,9 +193,10 @@ function BookingForm() {
 *Special Requirements:* ${d.requests || "—"}
 
 Please contact me regarding availability.`;
-    window.open(waLink(msg), "_blank", "noopener");
+    setConfirmation({ data: d, ref, message: msg });
     setSending(false);
   };
+
 
   return (
     <form onSubmit={onSubmit} className="glass rounded-3xl p-8 shadow-luxe">
