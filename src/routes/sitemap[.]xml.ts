@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { VILLAS } from "@/lib/villas";
+import { VILLA_UNITS } from "@/lib/villaUnits";
+import { BLOG_POSTS, BLOG_CATEGORIES } from "@/lib/blog";
 
 const BASE_URL = "";
 
@@ -20,7 +22,20 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/experiences", changefreq: "monthly", priority: "0.8" },
           { path: "/gallery", changefreq: "monthly", priority: "0.7" },
           { path: "/contact", changefreq: "monthly", priority: "0.8" },
+          { path: "/infinity-pool", changefreq: "monthly", priority: "0.8" },
+          { path: "/restaurant", changefreq: "monthly", priority: "0.8" },
+          { path: "/adventure", changefreq: "monthly", priority: "0.8" },
+          { path: "/weddings", changefreq: "monthly", priority: "0.8" },
+          { path: "/corporate", changefreq: "monthly", priority: "0.8" },
+          { path: "/family", changefreq: "monthly", priority: "0.8" },
+          { path: "/nearby-attractions", changefreq: "monthly", priority: "0.7" },
+          { path: "/faq", changefreq: "monthly", priority: "0.6" },
+          { path: "/offers/monsoon", changefreq: "monthly", priority: "0.7" },
+          { path: "/blog", changefreq: "weekly", priority: "0.7" },
           ...VILLAS.map((v) => ({ path: `/villas/${v.slug}`, changefreq: "monthly" as const, priority: "0.8" })),
+          ...VILLA_UNITS.map((u) => ({ path: `/villas/unit/${u.num}`, changefreq: "monthly" as const, priority: "0.7" })),
+          ...BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, changefreq: "monthly" as const, priority: "0.6" })),
+          ...BLOG_CATEGORIES.map((c) => ({ path: `/blog/category/${c.toLowerCase()}`, changefreq: "monthly" as const, priority: "0.5" })),
         ];
         const urls = entries.map((e) => [
           `  <url>`,
