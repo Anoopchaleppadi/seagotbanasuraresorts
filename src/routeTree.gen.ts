@@ -9,17 +9,56 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WeddingsRouteImport } from './routes/weddings'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
+import { Route as RestaurantRouteImport } from './routes/restaurant'
+import { Route as NearbyAttractionsRouteImport } from './routes/nearby-attractions'
+import { Route as InfinityPoolRouteImport } from './routes/infinity-pool'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as FamilyRouteImport } from './routes/family'
 import { Route as ExperiencesRouteImport } from './routes/experiences'
+import { Route as CorporateRouteImport } from './routes/corporate'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AdventureRouteImport } from './routes/adventure'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as VillasIndexRouteImport } from './routes/villas/index'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as VillasSlugRouteImport } from './routes/villas/$slug'
+import { Route as OffersMonsoonRouteImport } from './routes/offers.monsoon'
+import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
+import { Route as VillasUnitNumRouteImport } from './routes/villas/unit.$num'
+import { Route as BlogCategoryCatRouteImport } from './routes/blog/category.$cat'
 
+const WeddingsRoute = WeddingsRouteImport.update({
+  id: '/weddings',
+  path: '/weddings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RssDotxmlRoute = RssDotxmlRouteImport.update({
+  id: '/rss.xml',
+  path: '/rss.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestaurantRoute = RestaurantRouteImport.update({
+  id: '/restaurant',
+  path: '/restaurant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NearbyAttractionsRoute = NearbyAttractionsRouteImport.update({
+  id: '/nearby-attractions',
+  path: '/nearby-attractions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InfinityPoolRoute = InfinityPoolRouteImport.update({
+  id: '/infinity-pool',
+  path: '/infinity-pool',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -27,14 +66,34 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FamilyRoute = FamilyRouteImport.update({
+  id: '/family',
+  path: '/family',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ExperiencesRoute = ExperiencesRouteImport.update({
   id: '/experiences',
   path: '/experiences',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CorporateRoute = CorporateRouteImport.update({
+  id: '/corporate',
+  path: '/corporate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdventureRoute = AdventureRouteImport.update({
+  id: '/adventure',
+  path: '/adventure',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -47,87 +106,245 @@ const VillasIndexRoute = VillasIndexRouteImport.update({
   path: '/villas/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VillasSlugRoute = VillasSlugRouteImport.update({
   id: '/villas/$slug',
   path: '/villas/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OffersMonsoonRoute = OffersMonsoonRouteImport.update({
+  id: '/offers/monsoon',
+  path: '/offers/monsoon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VillasUnitNumRoute = VillasUnitNumRouteImport.update({
+  id: '/villas/unit/$num',
+  path: '/villas/unit/$num',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogCategoryCatRoute = BlogCategoryCatRouteImport.update({
+  id: '/blog/category/$cat',
+  path: '/blog/category/$cat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/adventure': typeof AdventureRoute
   '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
   '/experiences': typeof ExperiencesRoute
+  '/family': typeof FamilyRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
+  '/infinity-pool': typeof InfinityPoolRoute
+  '/nearby-attractions': typeof NearbyAttractionsRoute
+  '/restaurant': typeof RestaurantRoute
+  '/rss.xml': typeof RssDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/weddings': typeof WeddingsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/offers/monsoon': typeof OffersMonsoonRoute
   '/villas/$slug': typeof VillasSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/villas/': typeof VillasIndexRoute
+  '/blog/category/$cat': typeof BlogCategoryCatRoute
+  '/villas/unit/$num': typeof VillasUnitNumRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/adventure': typeof AdventureRoute
   '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
   '/experiences': typeof ExperiencesRoute
+  '/family': typeof FamilyRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
+  '/infinity-pool': typeof InfinityPoolRoute
+  '/nearby-attractions': typeof NearbyAttractionsRoute
+  '/restaurant': typeof RestaurantRoute
+  '/rss.xml': typeof RssDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/weddings': typeof WeddingsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/offers/monsoon': typeof OffersMonsoonRoute
   '/villas/$slug': typeof VillasSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/villas': typeof VillasIndexRoute
+  '/blog/category/$cat': typeof BlogCategoryCatRoute
+  '/villas/unit/$num': typeof VillasUnitNumRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/adventure': typeof AdventureRoute
   '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
   '/experiences': typeof ExperiencesRoute
+  '/family': typeof FamilyRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
+  '/infinity-pool': typeof InfinityPoolRoute
+  '/nearby-attractions': typeof NearbyAttractionsRoute
+  '/restaurant': typeof RestaurantRoute
+  '/rss.xml': typeof RssDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/weddings': typeof WeddingsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/offers/monsoon': typeof OffersMonsoonRoute
   '/villas/$slug': typeof VillasSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/villas/': typeof VillasIndexRoute
+  '/blog/category/$cat': typeof BlogCategoryCatRoute
+  '/villas/unit/$num': typeof VillasUnitNumRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/adventure'
     | '/contact'
+    | '/corporate'
     | '/experiences'
+    | '/family'
+    | '/faq'
     | '/gallery'
+    | '/infinity-pool'
+    | '/nearby-attractions'
+    | '/restaurant'
+    | '/rss.xml'
     | '/sitemap.xml'
+    | '/weddings'
+    | '/blog/$slug'
+    | '/offers/monsoon'
     | '/villas/$slug'
+    | '/blog/'
     | '/villas/'
+    | '/blog/category/$cat'
+    | '/villas/unit/$num'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/adventure'
     | '/contact'
+    | '/corporate'
     | '/experiences'
+    | '/family'
+    | '/faq'
     | '/gallery'
+    | '/infinity-pool'
+    | '/nearby-attractions'
+    | '/restaurant'
+    | '/rss.xml'
     | '/sitemap.xml'
+    | '/weddings'
+    | '/blog/$slug'
+    | '/offers/monsoon'
     | '/villas/$slug'
+    | '/blog'
     | '/villas'
+    | '/blog/category/$cat'
+    | '/villas/unit/$num'
   id:
     | '__root__'
     | '/'
+    | '/adventure'
     | '/contact'
+    | '/corporate'
     | '/experiences'
+    | '/family'
+    | '/faq'
     | '/gallery'
+    | '/infinity-pool'
+    | '/nearby-attractions'
+    | '/restaurant'
+    | '/rss.xml'
     | '/sitemap.xml'
+    | '/weddings'
+    | '/blog/$slug'
+    | '/offers/monsoon'
     | '/villas/$slug'
+    | '/blog/'
     | '/villas/'
+    | '/blog/category/$cat'
+    | '/villas/unit/$num'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdventureRoute: typeof AdventureRoute
   ContactRoute: typeof ContactRoute
+  CorporateRoute: typeof CorporateRoute
   ExperiencesRoute: typeof ExperiencesRoute
+  FamilyRoute: typeof FamilyRoute
+  FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
+  InfinityPoolRoute: typeof InfinityPoolRoute
+  NearbyAttractionsRoute: typeof NearbyAttractionsRoute
+  RestaurantRoute: typeof RestaurantRoute
+  RssDotxmlRoute: typeof RssDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  WeddingsRoute: typeof WeddingsRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  OffersMonsoonRoute: typeof OffersMonsoonRoute
   VillasSlugRoute: typeof VillasSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   VillasIndexRoute: typeof VillasIndexRoute
+  BlogCategoryCatRoute: typeof BlogCategoryCatRoute
+  VillasUnitNumRoute: typeof VillasUnitNumRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/weddings': {
+      id: '/weddings'
+      path: '/weddings'
+      fullPath: '/weddings'
+      preLoaderRoute: typeof WeddingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rss.xml': {
+      id: '/rss.xml'
+      path: '/rss.xml'
+      fullPath: '/rss.xml'
+      preLoaderRoute: typeof RssDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurant': {
+      id: '/restaurant'
+      path: '/restaurant'
+      fullPath: '/restaurant'
+      preLoaderRoute: typeof RestaurantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nearby-attractions': {
+      id: '/nearby-attractions'
+      path: '/nearby-attractions'
+      fullPath: '/nearby-attractions'
+      preLoaderRoute: typeof NearbyAttractionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/infinity-pool': {
+      id: '/infinity-pool'
+      path: '/infinity-pool'
+      fullPath: '/infinity-pool'
+      preLoaderRoute: typeof InfinityPoolRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -137,6 +354,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/family': {
+      id: '/family'
+      path: '/family'
+      fullPath: '/family'
+      preLoaderRoute: typeof FamilyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/experiences': {
       id: '/experiences'
       path: '/experiences'
@@ -144,11 +375,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExperiencesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/corporate': {
+      id: '/corporate'
+      path: '/corporate'
+      fullPath: '/corporate'
+      preLoaderRoute: typeof CorporateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/adventure': {
+      id: '/adventure'
+      path: '/adventure'
+      fullPath: '/adventure'
+      preLoaderRoute: typeof AdventureRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -165,6 +410,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VillasIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/villas/$slug': {
       id: '/villas/$slug'
       path: '/villas/$slug'
@@ -172,17 +424,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VillasSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/offers/monsoon': {
+      id: '/offers/monsoon'
+      path: '/offers/monsoon'
+      fullPath: '/offers/monsoon'
+      preLoaderRoute: typeof OffersMonsoonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/villas/unit/$num': {
+      id: '/villas/unit/$num'
+      path: '/villas/unit/$num'
+      fullPath: '/villas/unit/$num'
+      preLoaderRoute: typeof VillasUnitNumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/category/$cat': {
+      id: '/blog/category/$cat'
+      path: '/blog/category/$cat'
+      fullPath: '/blog/category/$cat'
+      preLoaderRoute: typeof BlogCategoryCatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdventureRoute: AdventureRoute,
   ContactRoute: ContactRoute,
+  CorporateRoute: CorporateRoute,
   ExperiencesRoute: ExperiencesRoute,
+  FamilyRoute: FamilyRoute,
+  FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
+  InfinityPoolRoute: InfinityPoolRoute,
+  NearbyAttractionsRoute: NearbyAttractionsRoute,
+  RestaurantRoute: RestaurantRoute,
+  RssDotxmlRoute: RssDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  WeddingsRoute: WeddingsRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  OffersMonsoonRoute: OffersMonsoonRoute,
   VillasSlugRoute: VillasSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
   VillasIndexRoute: VillasIndexRoute,
+  BlogCategoryCatRoute: BlogCategoryCatRoute,
+  VillasUnitNumRoute: VillasUnitNumRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
