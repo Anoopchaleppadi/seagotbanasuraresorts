@@ -1,0 +1,13 @@
+{
+  "name": "Seagot Banasura Resorts",
+  "short_name": "Seagot Banasura",
+  "description": "Luxury lake-view resort near Banasura Sagar Dam, Wayanad.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f4ee",
+  "theme_color": "#0f3d2e",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }
+  ]
+}

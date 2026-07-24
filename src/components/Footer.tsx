@@ -2,14 +2,15 @@ import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { RESORT, waLink, telLink } from "@/lib/resort";
 import logoAsset from "@/assets/seagot-banasura-logo.png.asset.json";
+import { VILLA_UNITS } from "@/lib/villaUnits";
 
 export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-gradient-emerald text-white">
       <div className="pointer-events-none absolute inset-0 opacity-20 [background:radial-gradient(60%_50%_at_50%_0%,white,transparent)]" />
       <div className="relative mx-auto max-w-7xl px-6 py-20">
-        <div className="grid gap-12 md:grid-cols-4">
-          <div>
+        <div className="grid gap-12 md:grid-cols-5">
+          <div className="md:col-span-2">
             <div className="flex items-center gap-3">
               <span className="inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-white shadow-luxe ring-1 ring-white/30">
                 <img src={logoAsset.url} alt="Seagot Banasura Resorts logo" className="h-12 w-12 object-contain" loading="lazy" decoding="async" />
@@ -22,14 +23,14 @@ export function Footer() {
             </p>
             <div className="mt-6 flex gap-3">
               {[
-                { icon: Instagram, href: RESORT.socials.instagram },
-                { icon: Facebook, href: RESORT.socials.facebook },
-                { icon: Youtube, href: RESORT.socials.youtube },
-              ].map(({ icon: Icon, href }, i) => (
+                { icon: Instagram, href: RESORT.socials.instagram, label: "Instagram" },
+                { icon: Facebook, href: RESORT.socials.facebook, label: "Facebook" },
+                { icon: Youtube, href: RESORT.socials.youtube, label: "YouTube" },
+              ].map(({ icon: Icon, href, label }) => (
                 <a
-                  key={i}
+                  key={label}
                   href={href}
-                  aria-label="Social link"
+                  aria-label={label}
                   target="_blank"
                   rel="noreferrer"
                   className="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white/85 transition hover:border-gold hover:text-gold-soft"
@@ -41,13 +42,30 @@ export function Footer() {
           </div>
 
           <div>
+            <h3 className="text-sm uppercase tracking-[0.28em] text-gold-soft">Stay</h3>
+            <ul className="mt-5 space-y-2 text-sm text-white/85">
+              <li><Link to="/villas" className="hover:text-gold-soft">All Villas</Link></li>
+              <li><Link to="/villas/$slug" params={{ slug: "standard-2-bedroom" }} className="hover:text-gold-soft">Standard 2 Bedroom</Link></li>
+              <li><Link to="/villas/$slug" params={{ slug: "deluxe-2-bedroom" }} className="hover:text-gold-soft">Deluxe 2 Bedroom</Link></li>
+              <li><Link to="/villas/$slug" params={{ slug: "three-bedroom-villa" }} className="hover:text-gold-soft">Three Bedroom</Link></li>
+              <li><Link to="/villas/$slug" params={{ slug: "presidential-4-bedroom" }} className="hover:text-gold-soft">Presidential Villa</Link></li>
+              <li><Link to="/offers/monsoon" className="hover:text-gold-soft">Monsoon Offers</Link></li>
+            </ul>
+          </div>
+
+          <div>
             <h3 className="text-sm uppercase tracking-[0.28em] text-gold-soft">Explore</h3>
-            <ul className="mt-5 space-y-3 text-white/85">
-              <li><Link to="/" className="hover:text-gold-soft">Home</Link></li>
-              <li><Link to="/villas" className="hover:text-gold-soft">Villas</Link></li>
-              <li><Link to="/experiences" className="hover:text-gold-soft">Experiences</Link></li>
+            <ul className="mt-5 space-y-2 text-sm text-white/85">
+              <li><Link to="/infinity-pool" className="hover:text-gold-soft">Infinity Pool</Link></li>
+              <li><Link to="/restaurant" className="hover:text-gold-soft">Restaurant</Link></li>
+              <li><Link to="/adventure" className="hover:text-gold-soft">Adventure</Link></li>
+              <li><Link to="/weddings" className="hover:text-gold-soft">Weddings</Link></li>
+              <li><Link to="/corporate" className="hover:text-gold-soft">Corporate</Link></li>
+              <li><Link to="/family" className="hover:text-gold-soft">Family Resort</Link></li>
+              <li><Link to="/nearby-attractions" className="hover:text-gold-soft">Nearby Attractions</Link></li>
               <li><Link to="/gallery" className="hover:text-gold-soft">Gallery</Link></li>
-              <li><Link to="/contact" className="hover:text-gold-soft">Contact</Link></li>
+              <li><Link to="/blog" className="hover:text-gold-soft">Blog</Link></li>
+              <li><Link to="/faq" className="hover:text-gold-soft">FAQ</Link></li>
             </ul>
           </div>
 
@@ -64,35 +82,26 @@ export function Footer() {
               </li>
             </ul>
           </div>
+        </div>
 
-          <div>
-            <h3 className="text-sm uppercase tracking-[0.28em] text-gold-soft">Stay in touch</h3>
-            <p className="mt-5 text-sm text-white/75">
-              Monsoon offers, seasonal menus and private-villa openings.
-            </p>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="mt-5 flex overflow-hidden rounded-full glass-dark"
-            >
-              <input
-                type="email"
-                required
-                placeholder="Your email"
-                aria-label="Email address"
-                className="flex-1 bg-transparent px-5 py-3 text-sm placeholder:text-white/50 focus:outline-none"
-              />
-              <button type="submit" className="bg-gradient-gold px-5 text-sm font-medium text-charcoal">
-                Join
-              </button>
-            </form>
+        <div className="mt-12 rounded-2xl border border-white/15 bg-white/[0.03] p-5">
+          <p className="text-[10px] uppercase tracking-[0.24em] text-gold-soft">Individual Villas</p>
+          <div className="mt-3 flex flex-wrap gap-2 text-xs text-white/75">
+            {VILLA_UNITS.map((u) => (
+              <Link key={u.num} to="/villas/unit/$num" params={{ num: u.num }} className="rounded-full border border-white/15 px-3 py-1 hover:border-gold hover:text-gold-soft">
+                Villa {u.num}
+              </Link>
+            ))}
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/15 pt-8 text-xs text-white/60 md:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/15 pt-8 text-xs text-white/60 md:flex-row">
           <p>© {new Date().getFullYear()} Seagot Banasura Resorts. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link to="/" className="hover:text-gold-soft">Privacy Policy</Link>
-            <Link to="/" className="hover:text-gold-soft">Terms</Link>
+            <Link to="/faq" className="hover:text-gold-soft">FAQ</Link>
+            <Link to="/contact" className="hover:text-gold-soft">Contact</Link>
+            <a href="/sitemap.xml" className="hover:text-gold-soft">Sitemap</a>
+            <a href="/rss.xml" className="hover:text-gold-soft">RSS</a>
           </div>
         </div>
       </div>
