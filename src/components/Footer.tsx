@@ -54,20 +54,24 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm uppercase tracking-[0.28em] text-gold-soft">Explore</h3>
+            <h3 className="text-sm uppercase tracking-[0.28em] text-gold-soft">Quick Links</h3>
             <ul className="mt-5 space-y-2 text-sm text-white/85">
-              <li><Link to="/infinity-pool" className="hover:text-gold-soft">Infinity Pool</Link></li>
-              <li><Link to="/restaurant" className="hover:text-gold-soft">Restaurant</Link></li>
-              <li><Link to="/adventure" className="hover:text-gold-soft">Adventure</Link></li>
-              <li><Link to="/weddings" className="hover:text-gold-soft">Weddings</Link></li>
-              <li><Link to="/corporate" className="hover:text-gold-soft">Corporate</Link></li>
-              <li><Link to="/family" className="hover:text-gold-soft">Family Resort</Link></li>
-              <li><Link to="/nearby-attractions" className="hover:text-gold-soft">Nearby Attractions</Link></li>
+              <li><Link to="/about-us" className="hover:text-gold-soft">About Us</Link></li>
+              <li><Link to="/accommodation" className="hover:text-gold-soft">Accommodation</Link></li>
+              <li><Link to="/resort-amenities" className="hover:text-gold-soft">Resort Amenities</Link></li>
+              <li><Link to="/adventure-activities" className="hover:text-gold-soft">Adventure Activities</Link></li>
+              <li><Link to="/camping" className="hover:text-gold-soft">Camping</Link></li>
+              <li><Link to="/packages" className="hover:text-gold-soft">Packages</Link></li>
+              <li><Link to="/offers" className="hover:text-gold-soft">Offers</Link></li>
+              <li><Link to="/tariff" className="hover:text-gold-soft">Tariff</Link></li>
+              <li><Link to="/testimonials" className="hover:text-gold-soft">Testimonials</Link></li>
+              <li><Link to="/feedback" className="hover:text-gold-soft">Feedback</Link></li>
               <li><Link to="/gallery" className="hover:text-gold-soft">Gallery</Link></li>
               <li><Link to="/blog" className="hover:text-gold-soft">Blog</Link></li>
-              <li><Link to="/faq" className="hover:text-gold-soft">FAQ</Link></li>
+              <li><Link to="/contact" className="hover:text-gold-soft">Contact</Link></li>
             </ul>
           </div>
+
 
           <div>
             <h3 className="text-sm uppercase tracking-[0.28em] text-gold-soft">Contact</h3>
@@ -99,9 +103,12 @@ export function Footer() {
           <p>© {new Date().getFullYear()} Seagot Banasura Resorts. All rights reserved.</p>
           <div className="flex gap-6">
             <Link to="/faq" className="hover:text-gold-soft">FAQ</Link>
-            <Link to="/contact" className="hover:text-gold-soft">Contact</Link>
+            <Link to="/privacy-policy" className="hover:text-gold-soft">Privacy</Link>
+            <Link to="/terms-and-conditions" className="hover:text-gold-soft">Terms</Link>
+            <Link to="/cancellation-policy" className="hover:text-gold-soft">Cancellation</Link>
+            <Link to="/refund-policy" className="hover:text-gold-soft">Refund</Link>
             <a href="/sitemap.xml" className="hover:text-gold-soft">Sitemap</a>
-            <a href="/rss.xml" className="hover:text-gold-soft">RSS</a>
+
           </div>
         </div>
       </div>

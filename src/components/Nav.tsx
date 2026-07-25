@@ -25,10 +25,11 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-nav py-3" : "bg-transparent py-5"
+      className={`fixed left-0 right-0 z-50 transition-all duration-500 top-0 sm:top-[38px] ${
+        scrolled ? "glass-nav py-3 sm:!top-0" : "bg-transparent py-5"
       }`}
     >
+
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link to="/" className="group flex items-center gap-3">
           <span
