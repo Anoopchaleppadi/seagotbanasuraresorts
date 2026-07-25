@@ -10,18 +10,28 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeddingsRouteImport } from './routes/weddings'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as TariffRouteImport } from './routes/tariff'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
 import { Route as RestaurantRouteImport } from './routes/restaurant'
+import { Route as ResortAmenitiesRouteImport } from './routes/resort-amenities'
+import { Route as PackagesRouteImport } from './routes/packages'
+import { Route as OffersRouteImport } from './routes/offers'
 import { Route as NearbyAttractionsRouteImport } from './routes/nearby-attractions'
 import { Route as InfinityPoolRouteImport } from './routes/infinity-pool'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as FamilyRouteImport } from './routes/family'
 import { Route as ExperiencesRouteImport } from './routes/experiences'
 import { Route as CorporateRouteImport } from './routes/corporate'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CampingRouteImport } from './routes/camping'
+import { Route as AdventureActivitiesRouteImport } from './routes/adventure-activities'
 import { Route as AdventureRouteImport } from './routes/adventure'
+import { Route as AccommodationRouteImport } from './routes/accommodation'
+import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as VillasIndexRouteImport } from './routes/villas/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
@@ -34,6 +44,16 @@ import { Route as BlogCategoryCatRouteImport } from './routes/blog/category.$cat
 const WeddingsRoute = WeddingsRouteImport.update({
   id: '/weddings',
   path: '/weddings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TariffRoute = TariffRouteImport.update({
+  id: '/tariff',
+  path: '/tariff',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -51,6 +71,21 @@ const RestaurantRoute = RestaurantRouteImport.update({
   path: '/restaurant',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResortAmenitiesRoute = ResortAmenitiesRouteImport.update({
+  id: '/resort-amenities',
+  path: '/resort-amenities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackagesRoute = PackagesRouteImport.update({
+  id: '/packages',
+  path: '/packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OffersRoute = OffersRouteImport.update({
+  id: '/offers',
+  path: '/offers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NearbyAttractionsRoute = NearbyAttractionsRouteImport.update({
   id: '/nearby-attractions',
   path: '/nearby-attractions',
@@ -64,6 +99,11 @@ const InfinityPoolRoute = InfinityPoolRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeedbackRoute = FeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -91,9 +131,29 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CampingRoute = CampingRouteImport.update({
+  id: '/camping',
+  path: '/camping',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdventureActivitiesRoute = AdventureActivitiesRouteImport.update({
+  id: '/adventure-activities',
+  path: '/adventure-activities',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdventureRoute = AdventureRouteImport.update({
   id: '/adventure',
   path: '/adventure',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccommodationRoute = AccommodationRouteImport.update({
+  id: '/accommodation',
+  path: '/accommodation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutUsRoute = AboutUsRouteImport.update({
+  id: '/about-us',
+  path: '/about-us',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -117,9 +177,9 @@ const VillasSlugRoute = VillasSlugRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const OffersMonsoonRoute = OffersMonsoonRouteImport.update({
-  id: '/offers/monsoon',
-  path: '/offers/monsoon',
-  getParentRoute: () => rootRouteImport,
+  id: '/monsoon',
+  path: '/monsoon',
+  getParentRoute: () => OffersRoute,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/blog/$slug',
@@ -139,18 +199,28 @@ const BlogCategoryCatRoute = BlogCategoryCatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
+  '/accommodation': typeof AccommodationRoute
   '/adventure': typeof AdventureRoute
+  '/adventure-activities': typeof AdventureActivitiesRoute
+  '/camping': typeof CampingRoute
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
   '/experiences': typeof ExperiencesRoute
   '/family': typeof FamilyRoute
   '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRoute
   '/gallery': typeof GalleryRoute
   '/infinity-pool': typeof InfinityPoolRoute
   '/nearby-attractions': typeof NearbyAttractionsRoute
+  '/offers': typeof OffersRouteWithChildren
+  '/packages': typeof PackagesRoute
+  '/resort-amenities': typeof ResortAmenitiesRoute
   '/restaurant': typeof RestaurantRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tariff': typeof TariffRoute
+  '/testimonials': typeof TestimonialsRoute
   '/weddings': typeof WeddingsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/offers/monsoon': typeof OffersMonsoonRoute
@@ -162,18 +232,28 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
+  '/accommodation': typeof AccommodationRoute
   '/adventure': typeof AdventureRoute
+  '/adventure-activities': typeof AdventureActivitiesRoute
+  '/camping': typeof CampingRoute
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
   '/experiences': typeof ExperiencesRoute
   '/family': typeof FamilyRoute
   '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRoute
   '/gallery': typeof GalleryRoute
   '/infinity-pool': typeof InfinityPoolRoute
   '/nearby-attractions': typeof NearbyAttractionsRoute
+  '/offers': typeof OffersRouteWithChildren
+  '/packages': typeof PackagesRoute
+  '/resort-amenities': typeof ResortAmenitiesRoute
   '/restaurant': typeof RestaurantRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tariff': typeof TariffRoute
+  '/testimonials': typeof TestimonialsRoute
   '/weddings': typeof WeddingsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/offers/monsoon': typeof OffersMonsoonRoute
@@ -186,18 +266,28 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
+  '/accommodation': typeof AccommodationRoute
   '/adventure': typeof AdventureRoute
+  '/adventure-activities': typeof AdventureActivitiesRoute
+  '/camping': typeof CampingRoute
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
   '/experiences': typeof ExperiencesRoute
   '/family': typeof FamilyRoute
   '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRoute
   '/gallery': typeof GalleryRoute
   '/infinity-pool': typeof InfinityPoolRoute
   '/nearby-attractions': typeof NearbyAttractionsRoute
+  '/offers': typeof OffersRouteWithChildren
+  '/packages': typeof PackagesRoute
+  '/resort-amenities': typeof ResortAmenitiesRoute
   '/restaurant': typeof RestaurantRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tariff': typeof TariffRoute
+  '/testimonials': typeof TestimonialsRoute
   '/weddings': typeof WeddingsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/offers/monsoon': typeof OffersMonsoonRoute
@@ -211,18 +301,28 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about-us'
+    | '/accommodation'
     | '/adventure'
+    | '/adventure-activities'
+    | '/camping'
     | '/contact'
     | '/corporate'
     | '/experiences'
     | '/family'
     | '/faq'
+    | '/feedback'
     | '/gallery'
     | '/infinity-pool'
     | '/nearby-attractions'
+    | '/offers'
+    | '/packages'
+    | '/resort-amenities'
     | '/restaurant'
     | '/rss.xml'
     | '/sitemap.xml'
+    | '/tariff'
+    | '/testimonials'
     | '/weddings'
     | '/blog/$slug'
     | '/offers/monsoon'
@@ -234,18 +334,28 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about-us'
+    | '/accommodation'
     | '/adventure'
+    | '/adventure-activities'
+    | '/camping'
     | '/contact'
     | '/corporate'
     | '/experiences'
     | '/family'
     | '/faq'
+    | '/feedback'
     | '/gallery'
     | '/infinity-pool'
     | '/nearby-attractions'
+    | '/offers'
+    | '/packages'
+    | '/resort-amenities'
     | '/restaurant'
     | '/rss.xml'
     | '/sitemap.xml'
+    | '/tariff'
+    | '/testimonials'
     | '/weddings'
     | '/blog/$slug'
     | '/offers/monsoon'
@@ -257,18 +367,28 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about-us'
+    | '/accommodation'
     | '/adventure'
+    | '/adventure-activities'
+    | '/camping'
     | '/contact'
     | '/corporate'
     | '/experiences'
     | '/family'
     | '/faq'
+    | '/feedback'
     | '/gallery'
     | '/infinity-pool'
     | '/nearby-attractions'
+    | '/offers'
+    | '/packages'
+    | '/resort-amenities'
     | '/restaurant'
     | '/rss.xml'
     | '/sitemap.xml'
+    | '/tariff'
+    | '/testimonials'
     | '/weddings'
     | '/blog/$slug'
     | '/offers/monsoon'
@@ -281,21 +401,30 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutUsRoute: typeof AboutUsRoute
+  AccommodationRoute: typeof AccommodationRoute
   AdventureRoute: typeof AdventureRoute
+  AdventureActivitiesRoute: typeof AdventureActivitiesRoute
+  CampingRoute: typeof CampingRoute
   ContactRoute: typeof ContactRoute
   CorporateRoute: typeof CorporateRoute
   ExperiencesRoute: typeof ExperiencesRoute
   FamilyRoute: typeof FamilyRoute
   FaqRoute: typeof FaqRoute
+  FeedbackRoute: typeof FeedbackRoute
   GalleryRoute: typeof GalleryRoute
   InfinityPoolRoute: typeof InfinityPoolRoute
   NearbyAttractionsRoute: typeof NearbyAttractionsRoute
+  OffersRoute: typeof OffersRouteWithChildren
+  PackagesRoute: typeof PackagesRoute
+  ResortAmenitiesRoute: typeof ResortAmenitiesRoute
   RestaurantRoute: typeof RestaurantRoute
   RssDotxmlRoute: typeof RssDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TariffRoute: typeof TariffRoute
+  TestimonialsRoute: typeof TestimonialsRoute
   WeddingsRoute: typeof WeddingsRoute
   BlogSlugRoute: typeof BlogSlugRoute
-  OffersMonsoonRoute: typeof OffersMonsoonRoute
   VillasSlugRoute: typeof VillasSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   VillasIndexRoute: typeof VillasIndexRoute
@@ -310,6 +439,20 @@ declare module '@tanstack/react-router' {
       path: '/weddings'
       fullPath: '/weddings'
       preLoaderRoute: typeof WeddingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tariff': {
+      id: '/tariff'
+      path: '/tariff'
+      fullPath: '/tariff'
+      preLoaderRoute: typeof TariffRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -333,6 +476,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RestaurantRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/resort-amenities': {
+      id: '/resort-amenities'
+      path: '/resort-amenities'
+      fullPath: '/resort-amenities'
+      preLoaderRoute: typeof ResortAmenitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/packages': {
+      id: '/packages'
+      path: '/packages'
+      fullPath: '/packages'
+      preLoaderRoute: typeof PackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/offers': {
+      id: '/offers'
+      path: '/offers'
+      fullPath: '/offers'
+      preLoaderRoute: typeof OffersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/nearby-attractions': {
       id: '/nearby-attractions'
       path: '/nearby-attractions'
@@ -352,6 +516,13 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -389,11 +560,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/camping': {
+      id: '/camping'
+      path: '/camping'
+      fullPath: '/camping'
+      preLoaderRoute: typeof CampingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/adventure-activities': {
+      id: '/adventure-activities'
+      path: '/adventure-activities'
+      fullPath: '/adventure-activities'
+      preLoaderRoute: typeof AdventureActivitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/adventure': {
       id: '/adventure'
       path: '/adventure'
       fullPath: '/adventure'
       preLoaderRoute: typeof AdventureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accommodation': {
+      id: '/accommodation'
+      path: '/accommodation'
+      fullPath: '/accommodation'
+      preLoaderRoute: typeof AccommodationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-us': {
+      id: '/about-us'
+      path: '/about-us'
+      fullPath: '/about-us'
+      preLoaderRoute: typeof AboutUsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -426,10 +625,10 @@ declare module '@tanstack/react-router' {
     }
     '/offers/monsoon': {
       id: '/offers/monsoon'
-      path: '/offers/monsoon'
+      path: '/monsoon'
       fullPath: '/offers/monsoon'
       preLoaderRoute: typeof OffersMonsoonRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof OffersRoute
     }
     '/blog/$slug': {
       id: '/blog/$slug'
@@ -455,23 +654,43 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface OffersRouteChildren {
+  OffersMonsoonRoute: typeof OffersMonsoonRoute
+}
+
+const OffersRouteChildren: OffersRouteChildren = {
+  OffersMonsoonRoute: OffersMonsoonRoute,
+}
+
+const OffersRouteWithChildren =
+  OffersRoute._addFileChildren(OffersRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutUsRoute: AboutUsRoute,
+  AccommodationRoute: AccommodationRoute,
   AdventureRoute: AdventureRoute,
+  AdventureActivitiesRoute: AdventureActivitiesRoute,
+  CampingRoute: CampingRoute,
   ContactRoute: ContactRoute,
   CorporateRoute: CorporateRoute,
   ExperiencesRoute: ExperiencesRoute,
   FamilyRoute: FamilyRoute,
   FaqRoute: FaqRoute,
+  FeedbackRoute: FeedbackRoute,
   GalleryRoute: GalleryRoute,
   InfinityPoolRoute: InfinityPoolRoute,
   NearbyAttractionsRoute: NearbyAttractionsRoute,
+  OffersRoute: OffersRouteWithChildren,
+  PackagesRoute: PackagesRoute,
+  ResortAmenitiesRoute: ResortAmenitiesRoute,
   RestaurantRoute: RestaurantRoute,
   RssDotxmlRoute: RssDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TariffRoute: TariffRoute,
+  TestimonialsRoute: TestimonialsRoute,
   WeddingsRoute: WeddingsRoute,
   BlogSlugRoute: BlogSlugRoute,
-  OffersMonsoonRoute: OffersMonsoonRoute,
   VillasSlugRoute: VillasSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   VillasIndexRoute: VillasIndexRoute,
