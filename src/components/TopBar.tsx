@@ -4,7 +4,7 @@ import { RESORT, waLink, telLink } from "@/lib/resort";
 export function TopBar() {
   const phones = [RESORT.phones.reservations, RESORT.phones.sales, RESORT.whatsapp];
   return (
-    <div className="relative z-[60] w-full bg-gradient-emerald text-white/90 text-xs">
+    <div className="fixed top-0 left-0 right-0 z-[60] w-full bg-gradient-emerald text-white/90 text-xs hidden sm:block">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-2 sm:px-8">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
           {phones.map((num) => (
