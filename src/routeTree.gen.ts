@@ -11,11 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeddingsRouteImport } from './routes/weddings'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as TariffRouteImport } from './routes/tariff'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
 import { Route as RestaurantRouteImport } from './routes/restaurant'
 import { Route as ResortAmenitiesRouteImport } from './routes/resort-amenities'
+import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as OffersRouteImport } from './routes/offers'
 import { Route as NearbyAttractionsRouteImport } from './routes/nearby-attractions'
@@ -27,6 +30,7 @@ import { Route as FamilyRouteImport } from './routes/family'
 import { Route as ExperiencesRouteImport } from './routes/experiences'
 import { Route as CorporateRouteImport } from './routes/corporate'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CancellationPolicyRouteImport } from './routes/cancellation-policy'
 import { Route as CampingRouteImport } from './routes/camping'
 import { Route as AdventureActivitiesRouteImport } from './routes/adventure-activities'
 import { Route as AdventureRouteImport } from './routes/adventure'
@@ -49,6 +53,11 @@ const WeddingsRoute = WeddingsRouteImport.update({
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TariffRoute = TariffRouteImport.update({
@@ -74,6 +83,16 @@ const RestaurantRoute = RestaurantRouteImport.update({
 const ResortAmenitiesRoute = ResortAmenitiesRouteImport.update({
   id: '/resort-amenities',
   path: '/resort-amenities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundPolicyRoute = RefundPolicyRouteImport.update({
+  id: '/refund-policy',
+  path: '/refund-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PackagesRoute = PackagesRouteImport.update({
@@ -129,6 +148,11 @@ const CorporateRoute = CorporateRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CancellationPolicyRoute = CancellationPolicyRouteImport.update({
+  id: '/cancellation-policy',
+  path: '/cancellation-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CampingRoute = CampingRouteImport.update({
@@ -204,6 +228,7 @@ export interface FileRoutesByFullPath {
   '/adventure': typeof AdventureRoute
   '/adventure-activities': typeof AdventureActivitiesRoute
   '/camping': typeof CampingRoute
+  '/cancellation-policy': typeof CancellationPolicyRoute
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
   '/experiences': typeof ExperiencesRoute
@@ -215,11 +240,14 @@ export interface FileRoutesByFullPath {
   '/nearby-attractions': typeof NearbyAttractionsRoute
   '/offers': typeof OffersRouteWithChildren
   '/packages': typeof PackagesRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-policy': typeof RefundPolicyRoute
   '/resort-amenities': typeof ResortAmenitiesRoute
   '/restaurant': typeof RestaurantRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tariff': typeof TariffRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/testimonials': typeof TestimonialsRoute
   '/weddings': typeof WeddingsRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -237,6 +265,7 @@ export interface FileRoutesByTo {
   '/adventure': typeof AdventureRoute
   '/adventure-activities': typeof AdventureActivitiesRoute
   '/camping': typeof CampingRoute
+  '/cancellation-policy': typeof CancellationPolicyRoute
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
   '/experiences': typeof ExperiencesRoute
@@ -248,11 +277,14 @@ export interface FileRoutesByTo {
   '/nearby-attractions': typeof NearbyAttractionsRoute
   '/offers': typeof OffersRouteWithChildren
   '/packages': typeof PackagesRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-policy': typeof RefundPolicyRoute
   '/resort-amenities': typeof ResortAmenitiesRoute
   '/restaurant': typeof RestaurantRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tariff': typeof TariffRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/testimonials': typeof TestimonialsRoute
   '/weddings': typeof WeddingsRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -271,6 +303,7 @@ export interface FileRoutesById {
   '/adventure': typeof AdventureRoute
   '/adventure-activities': typeof AdventureActivitiesRoute
   '/camping': typeof CampingRoute
+  '/cancellation-policy': typeof CancellationPolicyRoute
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
   '/experiences': typeof ExperiencesRoute
@@ -282,11 +315,14 @@ export interface FileRoutesById {
   '/nearby-attractions': typeof NearbyAttractionsRoute
   '/offers': typeof OffersRouteWithChildren
   '/packages': typeof PackagesRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-policy': typeof RefundPolicyRoute
   '/resort-amenities': typeof ResortAmenitiesRoute
   '/restaurant': typeof RestaurantRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tariff': typeof TariffRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/testimonials': typeof TestimonialsRoute
   '/weddings': typeof WeddingsRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -306,6 +342,7 @@ export interface FileRouteTypes {
     | '/adventure'
     | '/adventure-activities'
     | '/camping'
+    | '/cancellation-policy'
     | '/contact'
     | '/corporate'
     | '/experiences'
@@ -317,11 +354,14 @@ export interface FileRouteTypes {
     | '/nearby-attractions'
     | '/offers'
     | '/packages'
+    | '/privacy-policy'
+    | '/refund-policy'
     | '/resort-amenities'
     | '/restaurant'
     | '/rss.xml'
     | '/sitemap.xml'
     | '/tariff'
+    | '/terms-and-conditions'
     | '/testimonials'
     | '/weddings'
     | '/blog/$slug'
@@ -339,6 +379,7 @@ export interface FileRouteTypes {
     | '/adventure'
     | '/adventure-activities'
     | '/camping'
+    | '/cancellation-policy'
     | '/contact'
     | '/corporate'
     | '/experiences'
@@ -350,11 +391,14 @@ export interface FileRouteTypes {
     | '/nearby-attractions'
     | '/offers'
     | '/packages'
+    | '/privacy-policy'
+    | '/refund-policy'
     | '/resort-amenities'
     | '/restaurant'
     | '/rss.xml'
     | '/sitemap.xml'
     | '/tariff'
+    | '/terms-and-conditions'
     | '/testimonials'
     | '/weddings'
     | '/blog/$slug'
@@ -372,6 +416,7 @@ export interface FileRouteTypes {
     | '/adventure'
     | '/adventure-activities'
     | '/camping'
+    | '/cancellation-policy'
     | '/contact'
     | '/corporate'
     | '/experiences'
@@ -383,11 +428,14 @@ export interface FileRouteTypes {
     | '/nearby-attractions'
     | '/offers'
     | '/packages'
+    | '/privacy-policy'
+    | '/refund-policy'
     | '/resort-amenities'
     | '/restaurant'
     | '/rss.xml'
     | '/sitemap.xml'
     | '/tariff'
+    | '/terms-and-conditions'
     | '/testimonials'
     | '/weddings'
     | '/blog/$slug'
@@ -406,6 +454,7 @@ export interface RootRouteChildren {
   AdventureRoute: typeof AdventureRoute
   AdventureActivitiesRoute: typeof AdventureActivitiesRoute
   CampingRoute: typeof CampingRoute
+  CancellationPolicyRoute: typeof CancellationPolicyRoute
   ContactRoute: typeof ContactRoute
   CorporateRoute: typeof CorporateRoute
   ExperiencesRoute: typeof ExperiencesRoute
@@ -417,11 +466,14 @@ export interface RootRouteChildren {
   NearbyAttractionsRoute: typeof NearbyAttractionsRoute
   OffersRoute: typeof OffersRouteWithChildren
   PackagesRoute: typeof PackagesRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  RefundPolicyRoute: typeof RefundPolicyRoute
   ResortAmenitiesRoute: typeof ResortAmenitiesRoute
   RestaurantRoute: typeof RestaurantRoute
   RssDotxmlRoute: typeof RssDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TariffRoute: typeof TariffRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   TestimonialsRoute: typeof TestimonialsRoute
   WeddingsRoute: typeof WeddingsRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -446,6 +498,13 @@ declare module '@tanstack/react-router' {
       path: '/testimonials'
       fullPath: '/testimonials'
       preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tariff': {
@@ -481,6 +540,20 @@ declare module '@tanstack/react-router' {
       path: '/resort-amenities'
       fullPath: '/resort-amenities'
       preLoaderRoute: typeof ResortAmenitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund-policy': {
+      id: '/refund-policy'
+      path: '/refund-policy'
+      fullPath: '/refund-policy'
+      preLoaderRoute: typeof RefundPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/packages': {
@@ -558,6 +631,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cancellation-policy': {
+      id: '/cancellation-policy'
+      path: '/cancellation-policy'
+      fullPath: '/cancellation-policy'
+      preLoaderRoute: typeof CancellationPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/camping': {
@@ -672,6 +752,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdventureRoute: AdventureRoute,
   AdventureActivitiesRoute: AdventureActivitiesRoute,
   CampingRoute: CampingRoute,
+  CancellationPolicyRoute: CancellationPolicyRoute,
   ContactRoute: ContactRoute,
   CorporateRoute: CorporateRoute,
   ExperiencesRoute: ExperiencesRoute,
@@ -683,11 +764,14 @@ const rootRouteChildren: RootRouteChildren = {
   NearbyAttractionsRoute: NearbyAttractionsRoute,
   OffersRoute: OffersRouteWithChildren,
   PackagesRoute: PackagesRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  RefundPolicyRoute: RefundPolicyRoute,
   ResortAmenitiesRoute: ResortAmenitiesRoute,
   RestaurantRoute: RestaurantRoute,
   RssDotxmlRoute: RssDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TariffRoute: TariffRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
   TestimonialsRoute: TestimonialsRoute,
   WeddingsRoute: WeddingsRoute,
   BlogSlugRoute: BlogSlugRoute,
@@ -700,3 +784,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
