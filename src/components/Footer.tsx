@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { RESORT, waLink, telLink } from "@/lib/resort";
-import logoAsset from "@/assets/seagot-banasura-logo.png.asset.json";
+import logoUrl from "@/assets/seagot-banasura-logo.jpg";
 import { VILLA_UNITS } from "@/lib/villaUnits";
 
 export function Footer() {
@@ -13,7 +13,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-3">
               <span className="inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-white shadow-luxe ring-1 ring-white/30">
-                <img src={logoAsset.url} alt="Seagot Banasura Resorts logo" className="h-12 w-12 object-contain" loading="lazy" decoding="async" />
+                <img src={logoUrl} alt="Seagot Banasura Resorts logo" className="h-12 w-12 object-contain" loading="lazy" decoding="async" />
               </span>
               <span className="font-serif text-2xl">Seagot Banasura</span>
             </div>

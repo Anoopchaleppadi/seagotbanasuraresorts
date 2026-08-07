@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { RESORT } from "@/lib/resort";
-import logoAsset from "@/assets/seagot-banasura-logo.png.asset.json";
+import logoUrl from "@/assets/seagot-banasura-logo.jpg";
 
 const links = [
   { to: "/", label: "Home" },
@@ -38,7 +38,7 @@ export function Nav() {
             }`}
           >
             <img
-              src={logoAsset.url}
+              src={logoUrl}
               alt="Seagot Banasura Resorts logo"
               className="h-11 w-11 object-contain"
               loading="eager"

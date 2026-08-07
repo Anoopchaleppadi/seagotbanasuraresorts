@@ -106,8 +106,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "apple-touch-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
       { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "alternate", type: "application/rss+xml", title: "Seagot Banasura Blog", href: "/rss.xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -128,7 +128,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               "@id": "#organization",
               name: "Seagot Banasura Resorts",
               url: "/",
-              logo: "/favicon.ico",
+              logo: "/favicon.png",
               sameAs: [
                 "https://instagram.com/",
                 "https://facebook.com/",
@@ -178,7 +178,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               url: "/",
               telephone: "+919747440404",
               priceRange: "₹₹₹",
-              image: "/favicon.ico",
+              image: "/favicon.png",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Padinjarathara, Banasura Sagar Dam Road",
