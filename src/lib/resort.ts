@@ -9,8 +9,8 @@ export const RESORT = {
   whatsapp: "9747880808",
   phones: {
     reception: "9747330303",
-    reservations: "9747440404",
-    sales: "9747550505",
+    reservations: "9747550505",
+    sales: "9747440404",
   },
   mapEmbed:
     "https://www.google.com/maps?q=Banasura+Sagar+Dam,+Wayanad,+Kerala&output=embed",
