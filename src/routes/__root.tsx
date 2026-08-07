@@ -137,7 +137,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               contactPoint: [
                 {
                   "@type": "ContactPoint",
-                  telephone: "+919747440404",
+                  telephone: "+919747550505",
                   contactType: "reservations",
                   areaServed: "IN",
                   availableLanguage: ["English", "Malayalam", "Hindi"],
@@ -176,7 +176,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               description:
                 "Standard lake-view resort near Banasura Sagar Dam in Wayanad, Kerala with private villas, infinity pool and adventure experiences.",
               url: "/",
-              telephone: "+919747440404",
+              telephone: "+919747550505",
               priceRange: "₹₹₹",
               image: "/favicon.png",
               address: {
