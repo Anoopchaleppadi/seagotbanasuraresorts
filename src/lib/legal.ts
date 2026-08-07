@@ -37,7 +37,7 @@ export const LEGAL: Record<string, LegalDoc> = {
         "You may request access to, correction of, or deletion of your personal data at any time by writing to reservations@seagotbanasura.com. We will respond within 30 days.",
       ]},
       { heading: "Contact", body: [
-        "Questions about this policy? Email reservations@seagotbanasura.com or call +91 9747440404.",
+        "Questions about this policy? Email reservations@seagotbanasura.com or call +91 9747550505.",
       ]},
     ],
   },
@@ -87,7 +87,7 @@ export const LEGAL: Record<string, LegalDoc> = {
         "Group bookings (4+ villas), weddings and corporate events follow the terms of the signed contract, which supersedes this standard policy.",
       ]},
       { heading: "How to cancel", body: [
-        "Email reservations@seagotbanasura.com with your booking reference, or call +91 9747440404. Cancellations are effective only when acknowledged in writing.",
+        "Email reservations@seagotbanasura.com with your booking reference, or call +91 9747550505. Cancellations are effective only when acknowledged in writing.",
       ]},
     ],
   },

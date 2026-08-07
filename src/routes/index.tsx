@@ -72,7 +72,7 @@ const faqs = [
   { q: "Where exactly is Seagot Banasura Resorts located?", a: "We are set on a ridge overlooking Banasura Sagar Dam in Padinjarathara, Wayanad — about 3 km from the dam and 25 km from Kalpetta town." },
   { q: "What is the ideal season to visit Wayanad?", a: "Wayanad is a year-round destination. Monsoon (June–September) is dramatic and green; October–March is cool and clear; April–May offers hot afternoons and cool evenings." },
   { q: "Do you host destination weddings and corporate retreats?", a: "Yes. We host intimate weddings, milestone celebrations, and focused corporate offsites with full estate takeovers available for groups of up to 150 guests." },
-  { q: "How do I book a villa?", a: "The fastest way is our booking form or WhatsApp at +91 9747880808. Our reservations desk answers within minutes: +91 9747440404." },
+  { q: "How do I book a villa?", a: "The fastest way is our booking form or WhatsApp at +91 9747880808. Our reservations desk answers within minutes: +91 9747550505." },
   { q: "Is breakfast included?", a: "Yes — every villa tariff includes breakfast for the base occupancy at our lakeside restaurant." },
 ];
 
