@@ -18,7 +18,7 @@ export function Footer() {
               <span className="font-serif text-2xl">Seagot Banasura</span>
             </div>
             <p className="mt-5 text-sm text-white/75">
-              A luxury lake-view resort by Banasura Sagar Dam, hidden in the
+              A standard lake-view resort by Banasura Sagar Dam, hidden in the
               mist of Wayanad's Western Ghats.
             </p>
             <div className="mt-6 flex gap-3">

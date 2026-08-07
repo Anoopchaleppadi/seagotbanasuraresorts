@@ -20,7 +20,7 @@ function CampingPage() {
   return (
     <SiteLayout>
       <section className="relative h-[62vh] min-h-[460px] w-full overflow-hidden">
-        <img src={expCampfire} alt="Luxury camping and bonfire at Seagot Banasura" className="absolute inset-0 h-full w-full object-cover ken-burns" fetchPriority="high" />
+        <img src={expCampfire} alt="Standard camping and bonfire at Seagot Banasura" className="absolute inset-0 h-full w-full object-cover ken-burns" fetchPriority="high" />
         <div className="absolute inset-0 bg-gradient-hero-overlay" />
         <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-start justify-end px-6 pb-16 text-white">
           <Breadcrumbs items={[{ label: "Camping" }]} dark />
@@ -63,13 +63,13 @@ export const Route = createFileRoute("/camping")({
       { title: "Camping in Wayanad — Bonfire & Night Stay at Seagot Banasura" },
       { name: "description", content: "Premium camping in Wayanad — tented night stay, bonfire, live music and BBQ dinner overlooking Banasura Sagar Dam." },
       { property: "og:title", content: "Camping in Wayanad — Seagot Banasura Resorts" },
-      { property: "og:description", content: "Luxury tented camping, bonfire and stargazing above Banasura Sagar." },
+      { property: "og:description", content: "Standard tented camping, bonfire and stargazing above Banasura Sagar." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/camping" },
       { property: "og:image", content: expCampfire },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Camping in Wayanad — Seagot Banasura" },
-      { name: "twitter:description", content: "Luxury camping, bonfire and stargazing." },
+      { name: "twitter:description", content: "Standard camping, bonfire and stargazing." },
       { name: "twitter:image", content: expCampfire },
     ],
     links: [{ rel: "canonical", href: "/camping" }],

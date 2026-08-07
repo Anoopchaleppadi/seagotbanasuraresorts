@@ -8,7 +8,7 @@ import heroLake from "@/assets/hero-lake.jpg";
 import pool from "@/assets/pool.jpg";
 
 const stats = [
-  { icon: Home, label: "15 Luxury Villas" },
+  { icon: Home, label: "15 Standard Villas" },
   { icon: Award, label: "40 Elegant Rooms" },
   { icon: Users, label: "150 Guest Capacity" },
   { icon: Mountain, label: "Lake View Resort" },
@@ -25,7 +25,7 @@ function AboutPage() {
         <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-start justify-end px-6 pb-16 text-white">
           <Breadcrumbs items={[{ label: "About Us" }]} dark />
           <span className="divider-gold mt-3">Our Story</span>
-          <h1 className="mt-3 font-serif text-4xl sm:text-6xl">A quiet luxury above Banasura Sagar</h1>
+          <h1 className="mt-3 font-serif text-4xl sm:text-6xl">A quiet standard above Banasura Sagar</h1>
           <p className="mt-4 max-w-2xl text-white/85 text-lg">Seagot Banasura Resorts began as a promise — to build a retreat that belongs to Wayanad, not one imposed on it. Fifteen villas, forty rooms, one lake, and an unhurried Kerala hospitality.</p>
         </div>
       </section>
@@ -73,7 +73,7 @@ function AboutPage() {
             <div className="rounded-3xl border border-white/15 bg-white/5 backdrop-blur p-10">
               <span className="text-xs uppercase tracking-[0.28em] text-gold-soft">Mission</span>
               <h3 className="mt-3 font-serif text-3xl">To host you as Wayanad would</h3>
-              <p className="mt-4 text-white/85">Slow mornings. Home-cooked Kerala meals. Staff who remember your name. Rooms that open to a horizon you didn't expect. A place where luxury is measured in silence, not gold.</p>
+              <p className="mt-4 text-white/85">Slow mornings. Home-cooked Kerala meals. Staff who remember your name. Rooms that open to a horizon you didn't expect. A place where standard is measured in silence, not gold.</p>
             </div>
           </Reveal>
           <Reveal delay={80}>
@@ -103,15 +103,15 @@ export const Route = createFileRoute("/about-us")({
   head: () => ({
     meta: [
       { title: "About Us — Seagot Banasura Resorts, Wayanad" },
-      { name: "description", content: "The story, mission and vision behind Seagot Banasura Resorts — a 15-villa, 40-room lake-view luxury resort near Banasura Sagar Dam, Wayanad." },
-      { property: "og:title", content: "About Seagot Banasura Resorts — Luxury Lake View Resort in Wayanad" },
-      { property: "og:description", content: "15 villas, 40 rooms, 150 guests. A Kerala luxury retreat above Banasura Sagar Dam." },
+      { name: "description", content: "The story, mission and vision behind Seagot Banasura Resorts — a 15-villa, 40-room lake-view standard resort near Banasura Sagar Dam, Wayanad." },
+      { property: "og:title", content: "About Seagot Banasura Resorts — Standard Lake View Resort in Wayanad" },
+      { property: "og:description", content: "15 villas, 40 rooms, 150 guests. A Kerala standard retreat above Banasura Sagar Dam." },
       { property: "og:type", content: "article" },
       { property: "og:url", content: "/about-us" },
       { property: "og:image", content: aerial },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "About Seagot Banasura Resorts" },
-      { name: "twitter:description", content: "15 villas, 40 rooms, 150 guests. Luxury above Banasura Sagar." },
+      { name: "twitter:description", content: "15 villas, 40 rooms, 150 guests. Standard above Banasura Sagar." },
       { name: "twitter:image", content: aerial },
     ],
     links: [{ rel: "canonical", href: "/about-us" }],

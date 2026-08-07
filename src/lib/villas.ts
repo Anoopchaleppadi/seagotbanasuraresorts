@@ -82,7 +82,7 @@ export const VILLAS: Villa[] = [
     image: villaDeluxe,
     features: [
       "Premium Interior",
-      "Luxury Furniture",
+      "Standard Furniture",
       "Private Balcony",
       "Lake View",
       "Curated Ambient Lighting",
@@ -150,7 +150,7 @@ export const VILLAS: Villa[] = [
       "Four Bedrooms",
       "Grand Living Area",
       "Large Private Balcony",
-      "Luxury Interior",
+      "Standard Interior",
       "Panoramic Lake View",
     ],
     amenities: [
