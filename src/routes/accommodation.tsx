@@ -10,7 +10,7 @@ function AccommodationPage() {
   return (
     <SiteLayout>
       <section className="relative h-[54vh] min-h-[420px] w-full overflow-hidden">
-        <img src={villaPresidential} alt="Luxury villa accommodation at Seagot Banasura" className="absolute inset-0 h-full w-full object-cover ken-burns" fetchPriority="high" />
+        <img src={villaPresidential} alt="Standard villa accommodation at Seagot Banasura" className="absolute inset-0 h-full w-full object-cover ken-burns" fetchPriority="high" />
         <div className="absolute inset-0 bg-gradient-hero-overlay" />
         <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-start justify-end px-6 pb-14 text-white">
           <Breadcrumbs items={[{ label: "Accommodation" }]} dark />
@@ -59,13 +59,13 @@ export const Route = createFileRoute("/accommodation")({
       { title: "Accommodation — Villas & Rooms at Seagot Banasura, Wayanad" },
       { name: "description", content: "Explore villa and room categories at Seagot Banasura Resorts — Standard & Deluxe 2BR villas, 3BR & 4BR villas, and family rooms with lake and mountain views." },
       { property: "og:title", content: "Accommodation at Seagot Banasura Resorts" },
-      { property: "og:description", content: "Six luxury accommodation categories from 2BR villas to family rooms in Wayanad." },
+      { property: "og:description", content: "Six standard accommodation categories from 2BR villas to family rooms in Wayanad." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/accommodation" },
       { property: "og:image", content: villaPresidential },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Accommodation at Seagot Banasura Resorts" },
-      { name: "twitter:description", content: "Six luxury villa & room categories in Wayanad." },
+      { name: "twitter:description", content: "Six standard villa & room categories in Wayanad." },
       { name: "twitter:image", content: villaPresidential },
     ],
     links: [{ rel: "canonical", href: "/accommodation" }],

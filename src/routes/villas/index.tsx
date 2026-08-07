@@ -8,9 +8,9 @@ import heroLake from "@/assets/hero-lake.jpg";
 export const Route = createFileRoute("/villas/")({
   head: () => ({
     meta: [
-      { title: "Luxury Villas in Wayanad — Seagot Banasura Resorts" },
+      { title: "Standard Villas in Wayanad — Seagot Banasura Resorts" },
       { name: "description", content: "Fifteen lake-view villas at Seagot Banasura Resorts. Standard, Deluxe, Three Bedroom and Presidential villas overlooking Banasura Sagar Dam." },
-      { property: "og:title", content: "Luxury Villas in Wayanad" },
+      { property: "og:title", content: "Standard Villas in Wayanad" },
       { property: "og:description", content: "Standard, Deluxe, Three Bedroom and Presidential lake-view villas." },
       { property: "og:url", content: "/villas" },
     ],
@@ -23,7 +23,7 @@ function VillasPage() {
   return (
     <SiteLayout>
       <section className="relative h-[70vh] min-h-[520px] w-full overflow-hidden">
-        <img src={heroLake} alt="Luxury lake-view villas at Seagot Banasura" className="absolute inset-0 h-full w-full object-cover ken-burns" fetchPriority="high" width={1920} height={1200} />
+        <img src={heroLake} alt="Standard lake-view villas at Seagot Banasura" className="absolute inset-0 h-full w-full object-cover ken-burns" fetchPriority="high" width={1920} height={1200} />
         <div className="absolute inset-0 bg-gradient-hero-overlay" />
         <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-center justify-end px-6 pb-24 text-center text-white">
           <span className="divider-gold animate-fade-up">Our Villas</span>
@@ -45,7 +45,7 @@ function VillasPage() {
                   <img src={v.image} alt={v.name} loading="lazy" className="aspect-[4/3] h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110" />
                   {v.luxury && (
                     <span className="absolute right-4 top-4 rounded-full bg-gradient-gold px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-charcoal shadow-gold-glow">
-                      Luxury
+                      Standard
                     </span>
                   )}
                 </Link>

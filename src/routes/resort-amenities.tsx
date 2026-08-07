@@ -48,7 +48,7 @@ export const Route = createFileRoute("/resort-amenities")({
       { title: "Resort Amenities — Seagot Banasura Resorts, Wayanad" },
       { name: "description", content: "Infinity pool, restaurant, 24-hour reception, campfire, BBQ, adventure activities, kids area and more — every amenity at Seagot Banasura Resorts." },
       { property: "og:title", content: "Resort Amenities — Seagot Banasura Resorts" },
-      { property: "og:description", content: "14 world-class amenities at our lake-view luxury resort in Wayanad." },
+      { property: "og:description", content: "14 world-class amenities at our lake-view standard resort in Wayanad." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/resort-amenities" },
       { property: "og:image", content: pool },

@@ -1,7 +1,7 @@
 export const RESORT = {
   name: "Seagot Banasura Resorts",
   short: "Seagot Banasura",
-  tagline: "Escape to Luxury at Banasura Hills",
+  tagline: "Escape to Standard at Banasura Hills",
   location: "Banasura Sagar Dam, Wayanad, Kerala, India",
   address:
     "Seagot Banasura Resorts, Padinjarathara, Banasura Sagar Dam Road, Wayanad, Kerala 673575, India",

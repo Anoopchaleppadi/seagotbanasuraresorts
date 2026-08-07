@@ -13,14 +13,14 @@ import { useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Seagot Banasura Resorts — Luxury Lake View Resort in Wayanad" },
+      { title: "Seagot Banasura Resorts — Standard Lake View Resort in Wayanad" },
       {
         name: "description",
         content:
-          "A luxury lake-view resort by Banasura Sagar Dam, Wayanad. Private villas, infinity pool, adventure, and Kerala hospitality.",
+          "A standard lake-view resort by Banasura Sagar Dam, Wayanad. Private villas, infinity pool, adventure, and Kerala hospitality.",
       },
       { property: "og:title", content: "Seagot Banasura Resorts — Wayanad" },
-      { property: "og:description", content: "Luxury lake-view villas by Banasura Sagar Dam." },
+      { property: "og:description", content: "Standard lake-view villas by Banasura Sagar Dam." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
 });
 
 const stats = [
-  { label: "Luxury Villas", value: "15" },
+  { label: "Standard Villas", value: "15" },
   { label: "Guest Rooms", value: "40" },
   { label: "Guest Capacity", value: "150" },
   { label: "Infinity Pool", value: "1" },
@@ -114,7 +114,7 @@ function Hero() {
           className="mt-6 max-w-5xl font-serif text-5xl leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[92px] animate-fade-up"
           style={{ animationDelay: "0.15s" }}
         >
-          Escape to Luxury at{" "}
+          Escape to Standard at{" "}
           <span className="italic text-gradient-gold">Banasura Hills</span>
         </h1>
         <p
@@ -227,7 +227,7 @@ function About() {
             <SectionTitle
               center={false}
               eyebrow="The Sanctuary"
-              title={<>A quiet luxury cradled by <span className="italic text-gradient-emerald">the Western Ghats</span>.</>}
+              title={<>A quiet standard cradled by <span className="italic text-gradient-emerald">the Western Ghats</span>.</>}
             />
           </Reveal>
           <Reveal delay={120}>
@@ -313,7 +313,7 @@ function VillasPreview() {
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-emerald-deep/85 to-transparent" />
                 {v.luxury && (
                   <span className="absolute right-4 top-4 rounded-full bg-gradient-gold px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-charcoal shadow-gold-glow">
-                    Luxury
+                    Standard
                   </span>
                 )}
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
@@ -489,7 +489,7 @@ function NearbyAttractions() {
 
 const testimonials = [
   { name: "Ananya & Rohan", where: "Bangalore", quote: "The most peaceful three days of our year. The infinity pool at sunrise is unforgettable." },
-  { name: "Prasad Family", where: "Kochi", quote: "Rare to find luxury and warmth in the same breath. Our children still talk about the campfire." },
+  { name: "Prasad Family", where: "Kochi", quote: "Rare to find standard and warmth in the same breath. Our children still talk about the campfire." },
   { name: "Nikhil M.", where: "Mumbai", quote: "Booked the Presidential Villa for our founders' offsite. Everything, from breakfast to the bonfire, was designed with intent." },
 ];
 
