@@ -110,7 +110,7 @@ export function OnamWelcome() {
   const [scene, setScene] = useState<0 | 1 | 2>(0);
 
   useEffect(() => {
-    if (Date.now() > ONAM_END) return;
+    if (!ONAM_PROMOTION_ACTIVE || Date.now() > ONAM_END) return;
     try {
       if (sessionStorage.getItem(STORAGE_KEY) || localStorage.getItem(STORAGE_KEY)) return;
       sessionStorage.setItem(STORAGE_KEY, "1");
