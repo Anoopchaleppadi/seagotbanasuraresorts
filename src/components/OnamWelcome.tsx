@@ -139,6 +139,11 @@ export function OnamWelcome() {
     };
   }, [scene]);
 
+  // Broadcast visibility so the recruitment card never overlaps Onam.
+  useEffect(() => {
+    broadcastOnamStatus(scene !== 0);
+  }, [scene]);
+
   if (scene === 0) return null;
 
   return (
