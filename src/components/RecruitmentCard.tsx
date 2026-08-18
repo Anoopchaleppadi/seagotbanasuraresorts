@@ -71,7 +71,7 @@ export function RecruitmentCard() {
 
   return (
     <div
-      className="fixed bottom-4 right-4 z-[90] w-[calc(100vw-2rem)] max-w-[20rem] sm:bottom-6 sm:right-6"
+      className="fixed bottom-[9.5rem] right-4 z-[90] w-[calc(100vw-2rem)] max-w-[20rem] sm:bottom-[9.5rem] sm:right-5"
       role="dialog"
       aria-label="Job opening at Seagot Banasura Resorts"
       style={{ animation: "jobSlideIn 0.55s cubic-bezier(0.2,0.8,0.2,1) both" }}
