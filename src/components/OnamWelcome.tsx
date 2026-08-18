@@ -155,13 +155,13 @@ export function OnamWelcome() {
           </p>
           <h2
             className="mt-3 max-w-xl font-serif text-3xl leading-tight text-white sm:text-5xl"
-            style={{ animation: "onamRise 0.9s ease-out both 0.7s" }}
+            style={{ animation: "onamRise 0.8s ease-out both 0.55s" }}
           >
             At <span className="italic text-gradient-gold">Seagot Banasura Resorts</span>
           </h2>
           <p
             className="mt-4 text-sm text-white/80 sm:text-base"
-            style={{ animation: "onamRise 0.9s ease-out both 1.2s" }}
+            style={{ animation: "onamRise 0.8s ease-out both 0.9s" }}
           >
             Where Nature Meets Tradition
           </p>
