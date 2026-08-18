@@ -73,7 +73,7 @@ function Pookalam({ className = "" }: { className?: string }) {
       {Array.from({ length: 12 }, (_, i) => (
         <span
           key={i}
-          className="absolute inset-0 block"
+          className="absolute left-0 top-0 block h-full w-full"
           style={{ transform: `rotate(${i * 30}deg)` }}
         >
           <span
