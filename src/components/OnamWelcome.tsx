@@ -75,10 +75,12 @@ function Pookalam({ className = "" }: { className?: string }) {
         return (
           <span
             key={i}
-            className="absolute block h-[8%] w-[8%] rounded-full"
+            className="absolute block rounded-full"
             style={{
               left: `${50 + 40 * Math.sin(a) - 4}%`,
               top: `${50 - 40 * Math.cos(a) - 4}%`,
+              width: "8%",
+              height: "8%",
               background: PETAL_COLORS[i % PETAL_COLORS.length],
               opacity: 0.85,
             }}
