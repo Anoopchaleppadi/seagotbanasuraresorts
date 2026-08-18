@@ -70,18 +70,21 @@ function Pookalam({ className = "" }: { className?: string }) {
           }}
         />
       ))}
-      {Array.from({ length: 12 }, (_, i) => (
-        <span
-          key={i}
-          className="absolute left-0 top-0 block h-full w-full"
-          style={{ transform: `rotate(${i * 30}deg)` }}
-        >
+      {Array.from({ length: 12 }, (_, i) => {
+        const a = (i * 30 * Math.PI) / 180;
+        return (
           <span
-            className="absolute left-1/2 top-[7%] block h-[9%] w-[9%] -translate-x-1/2 rounded-full"
-            style={{ background: PETAL_COLORS[i % PETAL_COLORS.length], opacity: 0.85 }}
+            key={i}
+            className="absolute block h-[8%] w-[8%] rounded-full"
+            style={{
+              left: `${50 + 40 * Math.sin(a) - 4}%`,
+              top: `${50 - 40 * Math.cos(a) - 4}%`,
+              background: PETAL_COLORS[i % PETAL_COLORS.length],
+              opacity: 0.85,
+            }}
           />
-        </span>
-      ))}
+        );
+      })}
       <span className="block h-4 w-4 rounded-full bg-gradient-gold" />
     </div>
   );
