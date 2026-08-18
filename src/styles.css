@@ -327,3 +327,42 @@
 @utility animate-fade-up {
   animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
+
+/* ── Temporary Onam welcome experience (auto-expires 2026-08-30) ── */
+@keyframes onamPetalFall {
+  0% { opacity: 0; transform: translate3d(0, -12vh, 0) rotate(0deg); }
+  10% { opacity: 0.9; }
+  100% { opacity: 0; transform: translate3d(var(--drift, 4vw), 112vh, 0) rotate(320deg); }
+}
+
+@keyframes onamBloom {
+  from { opacity: 0; transform: scale(0.6) rotate(-12deg); }
+  to { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes onamRingSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes onamRise {
+  from { opacity: 0; transform: translateY(24px); filter: blur(6px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes onamScaleIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@utility onam-petal {
+  position: absolute;
+  top: -10vh;
+  border-radius: 60% 0 60% 0;
+  animation: onamPetalFall linear infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onam-petal { display: none; }
+}
