@@ -3,6 +3,7 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { FloatingButtons } from "./FloatingButtons";
 import { TopBar } from "./TopBar";
+import { OnamWelcome } from "./OnamWelcome";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
