@@ -73,13 +73,14 @@ function Pookalam({ className = "" }: { className?: string }) {
       {Array.from({ length: 12 }, (_, i) => (
         <span
           key={i}
-          className="absolute block h-3 w-3 rounded-full"
-          style={{
-            background: PETAL_COLORS[i % PETAL_COLORS.length],
-            transform: `rotate(${i * 30}deg) translateY(-46%)`,
-            opacity: 0.85,
-          }}
-        />
+          className="absolute inset-0 block"
+          style={{ transform: `rotate(${i * 30}deg)` }}
+        >
+          <span
+            className="absolute left-1/2 top-[7%] block h-[9%] w-[9%] -translate-x-1/2 rounded-full"
+            style={{ background: PETAL_COLORS[i % PETAL_COLORS.length], opacity: 0.85 }}
+          />
+        </span>
       ))}
       <span className="block h-4 w-4 rounded-full bg-gradient-gold" />
     </div>
