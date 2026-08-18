@@ -4,9 +4,23 @@ import maveli from "@/assets/onam-maveli.png";
 import logo from "@/assets/seagot-banasura-logo.jpg";
 import { waLink } from "@/lib/resort";
 
+/** Toggle to disable the entire Onam promotion (does not affect the rest of the site). */
+export const ONAM_PROMOTION_ACTIVE = true;
+
 /** Onam experience auto-disables after this date. */
 const ONAM_END = new Date("2026-08-31T00:00:00+05:30").getTime();
 const STORAGE_KEY = "sbr-onam-2026-seen";
+
+/** Broadcast Onam visibility so other temporary overlays (e.g. recruitment)
+ *  never appear at the same time. */
+function broadcastOnamStatus(active: boolean) {
+  try {
+    (window as unknown as { __sbrOnamActive?: boolean }).__sbrOnamActive = active;
+    window.dispatchEvent(new CustomEvent("sbr:onam-status", { detail: { active } }));
+  } catch {
+    /* no-op */
+  }
+}
 
 const WA_MESSAGE =
   "Hi Seagot Banasura Resorts, I'm interested in the Onam package. Please share the details.";
@@ -96,7 +110,7 @@ export function OnamWelcome() {
   const [scene, setScene] = useState<0 | 1 | 2>(0);
 
   useEffect(() => {
-    if (Date.now() > ONAM_END) return;
+    if (!ONAM_PROMOTION_ACTIVE || Date.now() > ONAM_END) return;
     try {
       if (sessionStorage.getItem(STORAGE_KEY) || localStorage.getItem(STORAGE_KEY)) return;
       sessionStorage.setItem(STORAGE_KEY, "1");
@@ -123,6 +137,11 @@ export function OnamWelcome() {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
+  }, [scene]);
+
+  // Broadcast visibility so the recruitment card never overlaps Onam.
+  useEffect(() => {
+    broadcastOnamStatus(scene !== 0);
   }, [scene]);
 
   if (scene === 0) return null;

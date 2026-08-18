@@ -366,3 +366,14 @@
 @media (prefers-reduced-motion: reduce) {
   .onam-petal { display: none; }
 }
+
+/* ── Temporary recruitment promotion (toggle via JOB_OPENING_ACTIVE) ── */
+@keyframes jobSlideIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes urgentPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 color-mix(in oklab, var(--gold) 70%, transparent); }
+  50% { opacity: 0.5; box-shadow: 0 0 0 5px color-mix(in oklab, var(--gold) 0%, transparent); }
+}
