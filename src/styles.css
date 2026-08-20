@@ -377,3 +377,33 @@
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 color-mix(in oklab, var(--gold) 70%, transparent); }
   50% { opacity: 0.5; box-shadow: 0 0 0 5px color-mix(in oklab, var(--gold) 0%, transparent); }
 }
+
+/* ── Temporary Onam availability announcement (auto-hides after end date) ── */
+@keyframes availSlideDown {
+  from { opacity: 0; transform: translateY(-100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes availGlow {
+  0%, 100% { text-shadow: 0 0 0 transparent; box-shadow: 0 0 0 0 color-mix(in oklab, var(--gold) 0%, transparent); }
+  50% { text-shadow: 0 0 12px color-mix(in oklab, var(--gold) 60%, transparent); box-shadow: 0 0 18px -4px color-mix(in oklab, var(--gold) 55%, transparent); }
+}
+
+@keyframes availPetalFloat {
+  0% { opacity: 0; transform: translate3d(0, -120%, 0) rotate(0deg); }
+  20% { opacity: 0.75; }
+  100% { opacity: 0; transform: translate3d(1.5rem, 320%, 0) rotate(220deg); }
+}
+
+@utility avail-petal {
+  position: absolute;
+  top: 0;
+  border-radius: 60% 0 60% 0;
+  background: var(--gold-soft);
+  animation: availPetalFloat linear infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avail-petal { display: none; }
+}
