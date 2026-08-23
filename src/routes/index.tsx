@@ -324,7 +324,7 @@ function VillasPreview() {
               <div className="flex items-center justify-between px-6 py-5">
                 <div>
                   <div className="text-xs text-muted-foreground">From</div>
-                  <div className="font-serif text-xl text-emerald-deep">₹{v.price.toLocaleString("en-IN")}<span className="text-xs text-muted-foreground"> / night</span></div>
+                  <div className="font-serif text-xl text-emerald-deep"><PriceSplit total={v.price} parts={v.bedrooms} suffix=" / night" /></div>
                 </div>
                 <span className="inline-flex items-center gap-1 text-sm font-medium text-emerald transition group-hover:text-gold">
                   Discover <ArrowRight size={16} />
