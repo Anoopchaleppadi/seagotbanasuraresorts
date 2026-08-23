@@ -157,18 +157,6 @@ function UnitPage() {
               </div>
             </Reveal>
 
-            <Reveal>
-              <div>
-                <h2 className="font-serif text-2xl text-emerald-deep">In-villa Amenities</h2>
-                <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-                  {u.parent.amenities.map((a) => (
-                    <li key={a} className="flex items-start gap-3 text-charcoal/85">
-                      <Check size={18} className="mt-0.5 shrink-0 text-gold" /> {a}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
 
             <Reveal>
               <div>
