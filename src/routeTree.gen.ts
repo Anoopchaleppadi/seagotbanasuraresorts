@@ -31,7 +31,6 @@ import { Route as ExperiencesRouteImport } from './routes/experiences'
 import { Route as CorporateRouteImport } from './routes/corporate'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CancellationPolicyRouteImport } from './routes/cancellation-policy'
-import { Route as CampingRouteImport } from './routes/camping'
 import { Route as AdventureActivitiesRouteImport } from './routes/adventure-activities'
 import { Route as AdventureRouteImport } from './routes/adventure'
 import { Route as AccommodationRouteImport } from './routes/accommodation'
@@ -155,11 +154,6 @@ const CancellationPolicyRoute = CancellationPolicyRouteImport.update({
   path: '/cancellation-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CampingRoute = CampingRouteImport.update({
-  id: '/camping',
-  path: '/camping',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AdventureActivitiesRoute = AdventureActivitiesRouteImport.update({
   id: '/adventure-activities',
   path: '/adventure-activities',
@@ -227,7 +221,6 @@ export interface FileRoutesByFullPath {
   '/accommodation': typeof AccommodationRoute
   '/adventure': typeof AdventureRoute
   '/adventure-activities': typeof AdventureActivitiesRoute
-  '/camping': typeof CampingRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
@@ -264,7 +257,6 @@ export interface FileRoutesByTo {
   '/accommodation': typeof AccommodationRoute
   '/adventure': typeof AdventureRoute
   '/adventure-activities': typeof AdventureActivitiesRoute
-  '/camping': typeof CampingRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
@@ -302,7 +294,6 @@ export interface FileRoutesById {
   '/accommodation': typeof AccommodationRoute
   '/adventure': typeof AdventureRoute
   '/adventure-activities': typeof AdventureActivitiesRoute
-  '/camping': typeof CampingRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
@@ -341,7 +332,6 @@ export interface FileRouteTypes {
     | '/accommodation'
     | '/adventure'
     | '/adventure-activities'
-    | '/camping'
     | '/cancellation-policy'
     | '/contact'
     | '/corporate'
@@ -378,7 +368,6 @@ export interface FileRouteTypes {
     | '/accommodation'
     | '/adventure'
     | '/adventure-activities'
-    | '/camping'
     | '/cancellation-policy'
     | '/contact'
     | '/corporate'
@@ -415,7 +404,6 @@ export interface FileRouteTypes {
     | '/accommodation'
     | '/adventure'
     | '/adventure-activities'
-    | '/camping'
     | '/cancellation-policy'
     | '/contact'
     | '/corporate'
@@ -453,7 +441,6 @@ export interface RootRouteChildren {
   AccommodationRoute: typeof AccommodationRoute
   AdventureRoute: typeof AdventureRoute
   AdventureActivitiesRoute: typeof AdventureActivitiesRoute
-  CampingRoute: typeof CampingRoute
   CancellationPolicyRoute: typeof CancellationPolicyRoute
   ContactRoute: typeof ContactRoute
   CorporateRoute: typeof CorporateRoute
@@ -640,13 +627,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CancellationPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/camping': {
-      id: '/camping'
-      path: '/camping'
-      fullPath: '/camping'
-      preLoaderRoute: typeof CampingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/adventure-activities': {
       id: '/adventure-activities'
       path: '/adventure-activities'
@@ -751,7 +731,6 @@ const rootRouteChildren: RootRouteChildren = {
   AccommodationRoute: AccommodationRoute,
   AdventureRoute: AdventureRoute,
   AdventureActivitiesRoute: AdventureActivitiesRoute,
-  CampingRoute: CampingRoute,
   CancellationPolicyRoute: CancellationPolicyRoute,
   ContactRoute: ContactRoute,
   CorporateRoute: CorporateRoute,

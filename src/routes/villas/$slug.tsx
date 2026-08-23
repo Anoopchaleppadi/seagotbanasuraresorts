@@ -121,18 +121,6 @@ function VillaDetail() {
               </div>
             </Reveal>
 
-            <Reveal>
-              <div>
-                <h3 className="font-serif text-2xl text-emerald-deep">In-villa Amenities</h3>
-                <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-                  {v.amenities.map((f) => (
-                    <li key={f} className="flex items-start gap-3 text-charcoal/85">
-                      <Check size={18} className="mt-0.5 shrink-0 text-gold" /> {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
 
             <Reveal>
               <div className="glass rounded-3xl p-8">
