@@ -3,16 +3,29 @@ import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ACCOMMODATION } from "@/lib/accommodation";
+import { VILLAS } from "@/lib/villas";
+import { PriceSplit } from "@/components/PriceSplit";
 import { Clock } from "lucide-react";
 import villaDeluxe from "@/assets/villa-deluxe.jpg";
 
-const rows = ACCOMMODATION.map((c) => ({
-  name: c.name,
-  capacity: c.capacity,
-  breakfast: "Included",
-  extra: "₹ On request",
-  children: "Below 5 free · 5-12 at 50%",
-}));
+const TARIFF_MATCH: Record<string, string> = {
+  "standard-2-bedroom-villa": "standard-2-bedroom",
+  "deluxe-2-bedroom-villa": "deluxe-2-bedroom",
+  "standard-3-bedroom-villa": "three-bedroom",
+  "deluxe-4-bedroom-villa": "presidential-four-bedroom",
+};
+
+const rows = ACCOMMODATION.map((c) => {
+  const villa = VILLAS.find((v) => v.slug === TARIFF_MATCH[c.slug]);
+  return {
+    name: c.name,
+    villa,
+    capacity: c.capacity,
+    breakfast: "Included",
+    extra: "₹ On request",
+    children: "Below 5 free · 5-12 at 50%",
+  };
+});
 
 function TariffPage() {
   return (
