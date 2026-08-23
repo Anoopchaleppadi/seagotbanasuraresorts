@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { PriceSplit } from "@/components/PriceSplit";
 import { ArrowRight, Check, MessageCircle, Users, BedDouble, Bath, Sparkles } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
@@ -157,18 +158,6 @@ function UnitPage() {
               </div>
             </Reveal>
 
-            <Reveal>
-              <div>
-                <h2 className="font-serif text-2xl text-emerald-deep">In-villa Amenities</h2>
-                <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-                  {u.parent.amenities.map((a) => (
-                    <li key={a} className="flex items-start gap-3 text-charcoal/85">
-                      <Check size={18} className="mt-0.5 shrink-0 text-gold" /> {a}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
 
             <Reveal>
               <div>
@@ -188,9 +177,9 @@ function UnitPage() {
               <div className="glass rounded-3xl p-8 shadow-luxe">
                 <div className="text-xs uppercase tracking-[0.28em] text-emerald">From</div>
                 <div className="mt-2 font-serif text-4xl text-emerald-deep">
-                  ₹{u.parent.price.toLocaleString("en-IN")}
-                  <span className="text-base text-muted-foreground"> / night</span>
+                  <PriceSplit total={u.parent.price} parts={u.parent.bedrooms} suffix=" / night" />
                 </div>
+                <p className="mt-1 text-[11px] text-muted-foreground">Tariff displayed as applicable room/component split</p>
                 <p className="mt-1 text-xs text-muted-foreground">Breakfast included for base occupancy</p>
                 <div className="mt-6 space-y-2 text-sm text-charcoal/80">
                   <div className="flex justify-between"><span>Extra adult</span><span>₹{u.parent.extraAdult}</span></div>

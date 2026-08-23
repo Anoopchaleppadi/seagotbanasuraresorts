@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { PriceSplit } from "@/components/PriceSplit";
 import { ArrowRight, BedDouble, Users, Bath, Sparkles, Check, MapPin, MessageCircle } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
@@ -121,18 +122,6 @@ function VillaDetail() {
               </div>
             </Reveal>
 
-            <Reveal>
-              <div>
-                <h3 className="font-serif text-2xl text-emerald-deep">In-villa Amenities</h3>
-                <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-                  {v.amenities.map((f) => (
-                    <li key={f} className="flex items-start gap-3 text-charcoal/85">
-                      <Check size={18} className="mt-0.5 shrink-0 text-gold" /> {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
 
             <Reveal>
               <div className="glass rounded-3xl p-8">
@@ -163,8 +152,9 @@ function VillaDetail() {
               <div className="glass rounded-3xl p-8 shadow-luxe">
                 <div className="text-xs uppercase tracking-[0.28em] text-emerald">From</div>
                 <div className="mt-2 font-serif text-4xl text-emerald-deep">
-                  ₹{v.price.toLocaleString("en-IN")}<span className="text-base text-muted-foreground"> / night</span>
+                  <PriceSplit total={v.price} parts={v.bedrooms} suffix=" / night" />
                 </div>
+                <p className="mt-1 text-[11px] text-muted-foreground">Tariff displayed as applicable room/component split</p>
                 <p className="mt-1 text-xs text-muted-foreground">
                   Breakfast included for base occupancy
                 </p>

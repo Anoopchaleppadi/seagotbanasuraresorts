@@ -60,7 +60,6 @@ export function Footer() {
               <li><Link to="/accommodation" className="hover:text-gold-soft">Accommodation</Link></li>
               <li><Link to="/resort-amenities" className="hover:text-gold-soft">Resort Amenities</Link></li>
               <li><Link to="/adventure-activities" className="hover:text-gold-soft">Adventure Activities</Link></li>
-              <li><Link to="/camping" className="hover:text-gold-soft">Camping</Link></li>
               <li><Link to="/packages" className="hover:text-gold-soft">Packages</Link></li>
               <li><Link to="/offers" className="hover:text-gold-soft">Offers</Link></li>
               <li><Link to="/tariff" className="hover:text-gold-soft">Tariff</Link></li>

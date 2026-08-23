@@ -52,20 +52,3 @@ export const ATTRACTIONS: Attraction[] = [
   { name: "Thirunelli Temple", distance: "60 km", desc: "Ancient temple wrapped in the Brahmagiri hills.", image: attrChembra },
   { name: "Muthanga Wildlife Sanctuary", distance: "70 km", desc: "Home to elephants, bison and tigers.", image: aerial },
 ];
-
-export const GALLERY: { src: string; category: string; alt: string }[] = [
-  { src: aerial, category: "Drone", alt: "Aerial view of Seagot Banasura resort" },
-  { src: pool, category: "Pool", alt: "Infinity pool at sunset" },
-  { src: villaStandardImg, category: "Villas", alt: "Standard villa exterior at twilight" },
-  { src: villaDeluxeImg, category: "Rooms", alt: "Deluxe villa bedroom with lake view" },
-  { src: villaThreeImg, category: "Villas", alt: "Three bedroom villa private balcony" },
-  { src: villaPresidentialImg, category: "Rooms", alt: "Presidential villa living room" },
-  { src: expRestaurant, category: "Restaurant", alt: "Lakeside restaurant interior" },
-  { src: expZipline, category: "Adventure", alt: "Zipline over the lake" },
-  { src: expTrek, category: "Nature", alt: "Sunrise trek at Chembra Peak" },
-  { src: expCampfire, category: "Nature", alt: "Evening campfire over the lake" },
-  { src: attrBanasura, category: "Drone", alt: "Banasura Sagar Dam aerial" },
-  { src: attrWaterfall, category: "Nature", alt: "Soochipara Waterfalls" },
-];
-
-export const GALLERY_CATEGORIES = ["All", "Villas", "Rooms", "Pool", "Adventure", "Restaurant", "Nature", "Drone"];

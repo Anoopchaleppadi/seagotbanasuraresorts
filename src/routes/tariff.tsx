@@ -3,16 +3,29 @@ import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ACCOMMODATION } from "@/lib/accommodation";
+import { VILLAS } from "@/lib/villas";
+import { PriceSplit } from "@/components/PriceSplit";
 import { Clock } from "lucide-react";
 import villaDeluxe from "@/assets/villa-deluxe.jpg";
 
-const rows = ACCOMMODATION.map((c) => ({
-  name: c.name,
-  capacity: c.capacity,
-  breakfast: "Included",
-  extra: "₹ On request",
-  children: "Below 5 free · 5-12 at 50%",
-}));
+const TARIFF_MATCH: Record<string, string> = {
+  "standard-2-bedroom-villa": "standard-2-bedroom",
+  "deluxe-2-bedroom-villa": "deluxe-2-bedroom",
+  "standard-3-bedroom-villa": "three-bedroom-villa",
+  "deluxe-4-bedroom-villa": "presidential-4-bedroom",
+};
+
+const rows = ACCOMMODATION.map((c) => {
+  const villa = VILLAS.find((v) => v.slug === TARIFF_MATCH[c.slug]);
+  return {
+    name: c.name,
+    villa,
+    capacity: c.capacity,
+    breakfast: "Included",
+    extra: "₹ On request",
+    children: "Below 5 free · 5-12 at 50%",
+  };
+});
 
 function TariffPage() {
   return (
@@ -39,7 +52,14 @@ function TariffPage() {
               </div>
               {rows.map((r, i) => (
                 <div key={r.name} className={`grid grid-cols-2 sm:grid-cols-5 text-sm ${i % 2 ? "bg-white/60" : "bg-white/80"}`}>
-                  <div className="px-5 py-4 font-serif text-emerald-deep">{r.name}</div>
+                  <div className="px-5 py-4 font-serif text-emerald-deep">
+                    {r.name}
+                    {r.villa ? (
+                      <div className="mt-1 text-sm font-sans text-charcoal/80">
+                        <PriceSplit total={r.villa.price} parts={r.villa.bedrooms} suffix=" / night" />
+                      </div>
+                    ) : null}
+                  </div>
                   <div className="px-5 py-4 text-charcoal/80">{r.capacity}</div>
                   <div className="px-5 py-4 text-charcoal/80">{r.breakfast}</div>
                   <div className="px-5 py-4 text-charcoal/80">{r.extra}</div>
@@ -70,7 +90,7 @@ function TariffPage() {
 
           <div className="mt-12 text-center">
             <Link to="/contact" hash="book" className="btn-luxe">Book Now</Link>
-            <p className="mt-3 text-xs text-muted-foreground">Rates exclude applicable taxes. Rates vary by season and length of stay.</p>
+            <p className="mt-3 text-xs text-muted-foreground">Tariff displayed as applicable room/component split. Rates exclude applicable taxes. Rates vary by season and length of stay.</p>
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { PriceSplit } from "@/components/PriceSplit";
 import { ArrowRight, BedDouble, Users, Bath, Sparkles } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
@@ -71,8 +72,9 @@ function VillasPage() {
                     <div>
                       <div className="text-xs text-muted-foreground">From (breakfast included)</div>
                       <div className="font-serif text-3xl text-emerald-deep">
-                        ₹{v.price.toLocaleString("en-IN")}<span className="text-sm text-muted-foreground"> / night</span>
+                        <PriceSplit total={v.price} parts={v.bedrooms} suffix=" / night" />
                       </div>
+                      <div className="mt-1 text-[11px] text-muted-foreground">Tariff displayed as applicable room/component split</div>
                       <div className="mt-1 text-xs text-muted-foreground">
                         Extra adult ₹{v.extraAdult} · Child (6–12) ₹{v.child} · Under 6 free
                       </div>

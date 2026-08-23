@@ -4,7 +4,9 @@ import heroLake from "@/assets/hero-lake.jpg";
 import aerial from "@/assets/aerial.jpg";
 import pool from "@/assets/pool.jpg";
 import { VILLAS } from "@/lib/villas";
-import { EXPERIENCES, ATTRACTIONS, GALLERY } from "@/lib/experiences";
+import { EXPERIENCES, ATTRACTIONS } from "@/lib/experiences";
+import { GALLERY_DATA as GALLERY } from "@/lib/gallery";
+import { PriceSplit } from "@/components/PriceSplit";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
 import { RESORT, waLink } from "@/lib/resort";
@@ -324,7 +326,7 @@ function VillasPreview() {
               <div className="flex items-center justify-between px-6 py-5">
                 <div>
                   <div className="text-xs text-muted-foreground">From</div>
-                  <div className="font-serif text-xl text-emerald-deep">₹{v.price.toLocaleString("en-IN")}<span className="text-xs text-muted-foreground"> / night</span></div>
+                  <div className="font-serif text-xl text-emerald-deep"><PriceSplit total={v.price} parts={v.bedrooms} suffix=" / night" /></div>
                 </div>
                 <span className="inline-flex items-center gap-1 text-sm font-medium text-emerald transition group-hover:text-gold">
                   Discover <ArrowRight size={16} />
