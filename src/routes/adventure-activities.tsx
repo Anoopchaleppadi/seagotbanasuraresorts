@@ -14,7 +14,6 @@ const activities = [
   { name: "Zipline", image: expZipline, desc: "Fly across the estate on a 400m twin-cable zipline with lake views." },
   { name: "Sky Cycling", image: aerial, desc: "Balance across a suspended cable — a heart-in-mouth photo moment." },
   { name: "Giant Swing", image: expZipline, desc: "The signature Wayanad giant swing — a controlled free-fall into the trees." },
-  { name: "Archery", image: expTrek, desc: "Traditional recurve archery with certified instructors." },
   { name: "Kayaking", image: heroLake, desc: "Paddle across Banasura Sagar with our licensed kayak guides." },
   { name: "Soft Trekking", image: expTrek, desc: "Guided 2–4 hour treks through nearby estates and forest trails." },
   { name: "Nature Walk", image: expTrek, desc: "Slow guided walks with our resident naturalist." },
@@ -32,7 +31,7 @@ function AdventurePage() {
           <Breadcrumbs items={[{ label: "Adventure Activities" }]} dark />
           <span className="divider-gold mt-3">Adventure</span>
           <h1 className="mt-3 font-serif text-4xl sm:text-6xl">Adrenaline, framed by the Ghats</h1>
-          <p className="mt-3 max-w-2xl text-white/85 text-lg">Nine on-site activities — from zipline to kayaking on Banasura Sagar — designed for solo travellers, families and groups.</p>
+          <p className="mt-3 max-w-2xl text-white/85 text-lg">Eight on-site activities — from zipline to kayaking on Banasura Sagar — designed for solo travellers, families and groups.</p>
         </div>
       </section>
 
@@ -67,7 +66,7 @@ export const Route = createFileRoute("/adventure-activities")({
   head: () => ({
     meta: [
       { title: "Adventure Activities in Wayanad — Seagot Banasura Resorts" },
-      { name: "description", content: "Zipline, sky cycling, giant swing, archery, kayaking, trekking, nature walks, campfire and BBQ — all on-site at Seagot Banasura Resorts, Wayanad." },
+      { name: "description", content: "Zipline, sky cycling, giant swing, kayaking, trekking, nature walks, campfire and BBQ — all on-site at Seagot Banasura Resorts, Wayanad." },
       { property: "og:title", content: "Adventure Activities — Seagot Banasura Resorts" },
       { property: "og:description", content: "9 on-site adventure activities in the Wayanad Western Ghats." },
       { property: "og:type", content: "website" },

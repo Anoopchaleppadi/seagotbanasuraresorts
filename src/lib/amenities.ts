@@ -22,7 +22,7 @@ export const AMENITIES: Amenity[] = [
   { name: "Indoor Games", desc: "Carrom, chess, table tennis and a game lounge.", icon: Gamepad2 },
   { name: "Outdoor Games", desc: "Badminton, cricket lawn and open play areas.", icon: Trees },
   { name: "Kids Area", desc: "Dedicated play zone and children's activities.", icon: Baby },
-  { name: "Adventure Activities", desc: "Zipline, kayaking, archery and more.", icon: Compass },
+  { name: "Adventure Activities", desc: "Zipline, kayaking, giant swing and more.", icon: Compass },
   { name: "Nature Walk", desc: "Guided estate and lakeside nature walks.", icon: Leaf },
   { name: "Power Backup", desc: "24-hour uninterrupted power supply.", icon: Zap },
 ];
