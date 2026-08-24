@@ -7,12 +7,20 @@ export type VillaCategory =
   | "standard"
   | "deluxe"
   | "three-bedroom"
+  | "three-bedroom-ensuite"
   | "presidential";
 
 export interface Villa {
+  /** Public URL slug — collection name based, never operational. */
   slug: string;
+  /** Guest-facing collection name. */
   name: string;
+  /** Collection sequence number, e.g. "01". */
+  number: string;
+  /** Short editorial line used on hero sections. */
+  tagline: string;
   category: VillaCategory;
+  /** INTERNAL ONLY — operational unit identifiers. Never render publicly. */
   villaNumbers: string[];
   capacity: string;
   adultCapacity: number;
@@ -22,6 +30,8 @@ export interface Villa {
   breakfast: boolean;
   luxury?: boolean;
   ac?: boolean;
+  /** Elegant specification chips shown to guests. */
+  specs: string[];
   features: string[];
   amenities: string[];
   bedrooms: number;
@@ -32,11 +42,13 @@ export interface Villa {
 
 export const VILLAS: Villa[] = [
   {
-    slug: "standard-2-bedroom",
-    name: "Standard 2 Bedroom Villa",
+    slug: "the-lake-house",
+    name: "The Lake House",
+    number: "01",
+    tagline: "Your private escape in the heart of Banasura.",
     category: "standard",
     villaNumbers: ["205", "218", "219", "220", "304"],
-    capacity: "4 Adults",
+    capacity: "4 Guests",
     adultCapacity: 4,
     price: 9000,
     extraAdult: 1300,
@@ -45,32 +57,35 @@ export const VILLAS: Villa[] = [
     bedrooms: 2,
     bathrooms: "1 Attached · 1 Common",
     image: villaStandard,
+    specs: ["04 Guests", "02 Bedrooms", "02 Levels", "Private Living Space", "Balcony"],
     features: [
-      "Two Floors",
-      "Private Living Area",
+      "Two Levels",
+      "Private Living Space",
       "Private Balcony",
-      "2 Bedrooms",
-      "1 Attached Bathroom",
-      "1 Common Bathroom",
+      "02 Bedrooms",
+      "01 Attached Bathroom",
+      "01 Common Bathroom",
       "Lake View",
     ],
     amenities: [
       "King bed with premium linen",
-      "In-villa dining nook",
+      "In-house dining nook",
       "Rain shower",
       "Hot water 24/7",
       "Complimentary Wi-Fi",
       "Daily housekeeping",
     ],
     description:
-      "A two-floor lake-view retreat set among the mist of the Western Ghats. Warm Kerala craftsmanship, a private balcony that opens to the horizon and quiet space for four to unwind.",
+      "A serene private escape designed for families and guests seeking space, comfort and the beauty of Banasura.",
   },
   {
-    slug: "deluxe-2-bedroom",
-    name: "Deluxe 2 Bedroom Villa",
+    slug: "the-signature-house",
+    name: "The Signature House",
+    number: "02",
+    tagline: "Contemporary comfort above a still lake.",
     category: "deluxe",
     villaNumbers: ["123"],
-    capacity: "4 Adults",
+    capacity: "4 Guests",
     adultCapacity: 4,
     price: 11000,
     extraAdult: 1600,
@@ -80,61 +95,107 @@ export const VILLAS: Villa[] = [
     bedrooms: 2,
     bathrooms: "2 Attached",
     image: villaDeluxe,
+    specs: ["04 Guests", "02 Bedrooms", "02 Levels", "Private Living Space", "Balcony", "Deluxe"],
     features: [
-      "Premium Interior",
-      "Standard Furniture",
+      "Deluxe Interior",
+      "Two Levels",
+      "Private Living Space",
       "Private Balcony",
+      "02 Bedrooms",
+      "02 Attached Bathrooms",
       "Lake View",
-      "Curated Ambient Lighting",
     ],
     amenities: [
-      "Egyptian cotton linens",
-      "Rainfall shower + bathtub",
-      "In-villa mini bar",
-      "Espresso machine",
-      "Curated aromatherapy",
-      "Butler on request",
+      "Premium linen",
+      "Rainfall shower",
+      "Tea & coffee service",
+      "Hot water 24/7",
+      "Complimentary Wi-Fi",
+      "Daily housekeeping",
     ],
     description:
-      "Our signature deluxe villa — a study in emerald and gold. Vaulted ceilings, teak floors and floor-to-ceiling glass framing the still waters of Banasura Sagar.",
+      "A refined private stay where contemporary comfort meets the tranquil landscape of Banasura.",
   },
   {
-    slug: "three-bedroom-villa",
-    name: "Three Bedroom Villa",
+    slug: "the-grand-house",
+    name: "The Grand House",
+    number: "03",
+    tagline: "Room enough for everyone you love.",
     category: "three-bedroom",
-    villaNumbers: ["204", "209", "210", "216", "217", "301", "302", "306"],
-    capacity: "6 Adults",
+    villaNumbers: ["204", "209", "210", "216", "217", "302", "306"],
+    capacity: "6 Guests",
     adultCapacity: 6,
     price: 12000,
     extraAdult: 1300,
     child: 750,
     breakfast: true,
     bedrooms: 3,
-    bathrooms: "Villa 301 · 3 Attached / 302 · 2 Attached / 306 · 2 Attached",
+    bathrooms: "2 Attached",
     image: villaThree,
+    specs: ["06 Guests", "03 Bedrooms", "02 Levels", "Private Living Space", "Balcony"],
     features: [
-      "3 Bedrooms",
-      "Spacious Living Area",
+      "03 Bedrooms",
+      "Two Levels",
+      "Private Living Space",
       "Private Balcony",
+      "02 Attached Bathrooms",
       "Lake View",
-      "Ideal for Families & Groups",
     ],
     amenities: [
-      "King & Twin bedding",
+      "King & twin bedding",
       "Group dining table",
       "Complimentary tea/coffee",
-      "Board games hamper",
-      "Terrace lounge",
+      "Hot water 24/7",
+      "Complimentary Wi-Fi",
+      "Daily housekeeping",
     ],
     description:
-      "Built for gatherings that deserve a view. Three private bedrooms, a shared lounge and a wide balcony where the sunset lingers over the lake.",
+      "An expansive private escape created for families and groups to reconnect, relax and experience Banasura together.",
   },
   {
-    slug: "presidential-4-bedroom",
-    name: "Presidential Four Bedroom Villa",
+    slug: "the-grand-ensuite-house",
+    name: "The Grand Ensuite House",
+    number: "04",
+    tagline: "Three bedrooms, three private bathrooms.",
+    category: "three-bedroom-ensuite",
+    villaNumbers: ["301"],
+    capacity: "6 Guests",
+    adultCapacity: 6,
+    price: 12000,
+    extraAdult: 1300,
+    child: 750,
+    breakfast: true,
+    bedrooms: 3,
+    bathrooms: "3 Attached",
+    image: villaThree,
+    specs: ["06 Guests", "03 Bedrooms", "03 Attached Bathrooms", "02 Levels", "Private Living Space", "Balcony"],
+    features: [
+      "03 Bedrooms",
+      "03 Attached Bathrooms",
+      "Two Levels",
+      "Private Living Space",
+      "Private Balcony",
+      "Lake View",
+    ],
+    amenities: [
+      "King & twin bedding",
+      "Group dining table",
+      "Complimentary tea/coffee",
+      "Hot water 24/7",
+      "Complimentary Wi-Fi",
+      "Daily housekeeping",
+    ],
+    description:
+      "A spacious private stay designed around comfort, privacy and effortless group living.",
+  },
+  {
+    slug: "the-banasura-residence",
+    name: "The Banasura Residence",
+    number: "05",
+    tagline: "Our most expansive private stay.",
     category: "presidential",
     villaNumbers: ["215"],
-    capacity: "8 Adults",
+    capacity: "8 Guests",
     adultCapacity: 8,
     price: 24000,
     extraAdult: 1600,
@@ -145,24 +206,25 @@ export const VILLAS: Villa[] = [
     bedrooms: 4,
     bathrooms: "4 Attached",
     image: villaPresidential,
+    specs: ["08 Guests", "04 Bedrooms", "Air Conditioned", "02 Levels", "Private Living Space", "Balcony"],
     features: [
       "Air Conditioned",
-      "Four Bedrooms",
-      "Grand Living Area",
+      "04 Bedrooms",
+      "04 Attached Bathrooms",
+      "Two Levels",
+      "Grand Private Living Space",
       "Large Private Balcony",
-      "Standard Interior",
       "Panoramic Lake View",
     ],
     amenities: [
-      "Chandelier-lit double height living",
-      "Chef on request",
-      "Premium bar setup",
-      "Private butler",
-      "Cinema-quality sound",
-      "Bespoke turndown ritual",
+      "Premium linen across four bedrooms",
+      "Private dining setting",
+      "Hot water 24/7",
+      "Complimentary Wi-Fi",
+      "Daily housekeeping",
     ],
     description:
-      "The Presidential Villa 215 — the estate's crown jewel. Double-height living, four bedrooms and a sweeping balcony that meets the mountains and the lake as one.",
+      "Our most expansive private accommodation, designed for memorable family and group escapes surrounded by the Banasura landscape.",
   },
 ];
 
