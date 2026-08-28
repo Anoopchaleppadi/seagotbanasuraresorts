@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { VILLAS } from "@/lib/villas";
-import { VILLA_UNITS } from "@/lib/villaUnits";
+
 import { BLOG_POSTS, BLOG_CATEGORIES } from "@/lib/blog";
 
 const BASE_URL = "";
