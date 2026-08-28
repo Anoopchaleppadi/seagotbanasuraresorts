@@ -88,11 +88,11 @@ export function Footer() {
         </div>
 
         <div className="mt-12 rounded-2xl border border-white/15 bg-white/[0.03] p-5">
-          <p className="text-[10px] uppercase tracking-[0.24em] text-gold-soft">Individual Villas</p>
+          <p className="text-[10px] uppercase tracking-[0.24em] text-gold-soft">The Seagot Collection</p>
           <div className="mt-3 flex flex-wrap gap-2 text-xs text-white/75">
-            {VILLA_UNITS.map((u) => (
-              <Link key={u.num} to="/villas/unit/$num" params={{ num: u.num }} className="rounded-full border border-white/15 px-3 py-1 hover:border-gold hover:text-gold-soft">
-                Villa {u.num}
+            {VILLAS.map((v) => (
+              <Link key={v.slug} to="/villas/$slug" params={{ slug: v.slug }} className="rounded-full border border-white/15 px-3 py-1 hover:border-gold hover:text-gold-soft">
+                {v.name}
               </Link>
             ))}
           </div>
