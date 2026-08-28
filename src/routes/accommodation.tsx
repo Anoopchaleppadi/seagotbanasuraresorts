@@ -15,8 +15,8 @@ function AccommodationPage() {
         <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-start justify-end px-6 pb-14 text-white">
           <Breadcrumbs items={[{ label: "Accommodation" }]} dark />
           <span className="divider-gold mt-3">Rooms & Villas</span>
-          <h1 className="mt-3 font-serif text-4xl sm:text-6xl">Accommodation at Seagot Banasura</h1>
-          <p className="mt-3 max-w-2xl text-white/85 text-lg">Six thoughtfully designed categories — from two-bedroom villas to family rooms — each with a view of the Wayanad landscape.</p>
+          <h1 className="mt-3 font-serif text-4xl sm:text-6xl">The Seagot Collection</h1>
+          <p className="mt-3 max-w-2xl text-white/85 text-lg">Five private houses in The Seagot Collection — each designed around space, quiet and a view of the Wayanad landscape.</p>
         </div>
       </section>
 
@@ -41,7 +41,7 @@ function AccommodationPage() {
                   </ul>
                   <div className="mt-6 flex items-center justify-between">
                     <Link to="/contact" hash="book" className="btn-luxe !py-2.5 !px-5 text-sm">Book Now</Link>
-                    <Link to="/villas" className="inline-flex items-center gap-1 text-sm text-emerald-deep hover:text-gold">See all villas <ArrowRight size={14} /></Link>
+                    <Link to="/villas" className="inline-flex items-center gap-1 text-sm text-emerald-deep hover:text-gold">View the collection <ArrowRight size={14} /></Link>
                   </div>
                 </div>
               </article>
@@ -56,16 +56,16 @@ function AccommodationPage() {
 export const Route = createFileRoute("/accommodation")({
   head: () => ({
     meta: [
-      { title: "Accommodation — Villas & Rooms at Seagot Banasura, Wayanad" },
-      { name: "description", content: "Explore villa and room categories at Seagot Banasura Resorts — Standard & Deluxe 2BR villas, 3BR & 4BR villas, and family rooms with lake and mountain views." },
+      { title: "The Seagot Collection — Private Houses at Seagot Banasura, Wayanad" },
+      { name: "description", content: "Explore The Seagot Collection — The Lake House, The Signature House, The Grand House, The Grand Ensuite House and The Banasura Residence, all with lake and mountain views." },
       { property: "og:title", content: "Accommodation at Seagot Banasura Resorts" },
-      { property: "og:description", content: "Six standard accommodation categories from 2BR villas to family rooms in Wayanad." },
+      { property: "og:description", content: "Five private houses with lake and mountain views in Wayanad." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/accommodation" },
       { property: "og:image", content: villaPresidential },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Accommodation at Seagot Banasura Resorts" },
-      { name: "twitter:description", content: "Six standard villa & room categories in Wayanad." },
+      { name: "twitter:description", content: "Five private houses in Wayanad." },
       { name: "twitter:image", content: villaPresidential },
     ],
     links: [{ rel: "canonical", href: "/accommodation" }],

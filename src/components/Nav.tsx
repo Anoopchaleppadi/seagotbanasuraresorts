@@ -6,7 +6,7 @@ import logoUrl from "@/assets/seagot-banasura-logo.jpg";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/villas", label: "Villas" },
+  { to: "/villas", label: "The Collection" },
   { to: "/experiences", label: "Experiences" },
   { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Contact" },
