@@ -82,7 +82,7 @@ function VillaDetail() {
         <div className="absolute inset-0 bg-gradient-hero-overlay" />
         <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-start justify-end px-6 pb-20 text-white">
           <span className="divider-gold animate-fade-up">
-            Villa {v.villaNumbers.join(" · ")}
+            No. {v.number} · The Seagot Collection
           </span>
           <h1 className="mt-5 font-serif text-5xl leading-tight sm:text-6xl md:text-7xl animate-fade-up" style={{ animationDelay: "0.15s" }}>
             {v.name}
