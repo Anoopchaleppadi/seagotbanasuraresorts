@@ -45,7 +45,7 @@ export function Footer() {
             <h3 className="text-sm uppercase tracking-[0.28em] text-gold-soft">Stay</h3>
             <ul className="mt-5 space-y-2 text-sm text-white/85">
               <li><Link to="/villas" className="hover:text-gold-soft">The Seagot Collection</Link></li>
-              <li><Link to="/villas/$slug" params={{ slug: "standard-2-bedroom" }} className="hover:text-gold-soft">Standard 2 Bedroom</Link></li>
+              <li><Link to="/villas/$slug" params={{ slug: "the-lake-house" }} className="hover:text-gold-soft">The Lake House</Link></li>
               <li><Link to="/villas/$slug" params={{ slug: "the-signature-house" }} className="hover:text-gold-soft">The Signature House</Link></li>
               <li><Link to="/villas/$slug" params={{ slug: "the-grand-house" }} className="hover:text-gold-soft">The Grand House</Link></li>
               <li><Link to="/villas/$slug" params={{ slug: "the-banasura-residence" }} className="hover:text-gold-soft">The Banasura Residence</Link></li>
