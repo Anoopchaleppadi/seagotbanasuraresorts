@@ -3,6 +3,9 @@ import { ArrowRight, Waves, Mountain, Trees, Utensils, Flame, Users, Baby, Gamep
 import heroLake from "@/assets/hero-lake.jpg";
 import aerial from "@/assets/aerial.jpg";
 import pool from "@/assets/pool.jpg";
+import heroTwilightAsset from "@/assets/hero-twilight.jpg.asset.json";
+
+const heroTwilight = heroTwilightAsset.url;
 import { VILLAS } from "@/lib/villas";
 import { EXPERIENCES, ATTRACTIONS } from "@/lib/experiences";
 import { GALLERY_DATA as GALLERY } from "@/lib/gallery";
@@ -101,8 +104,8 @@ function Hero() {
   return (
     <section className="relative min-h-dvh w-full overflow-hidden">
       <img
-        src={heroLake}
-        alt="Infinity pool overlooking Banasura Sagar Dam at golden hour"
+        src={heroTwilight}
+        alt="Infinity pool overlooking Banasura Sagar Dam at twilight"
         width={1920}
         height={1200}
         fetchPriority="high"
