@@ -193,7 +193,7 @@ export const LANDING_PAGES: Record<string, LandingPageData> = {
       { q: "Are activities safe for young children?", a: "Yes — activity age minimums are clearly enforced and every session has a trained supervisor." },
     ],
     related: [
-      { label: "Three bedroom villa", to: "/villas/three-bedroom-villa" },
+      { label: "The Grand House", to: "/villas/the-grand-house" },
       { label: "Adventure activities", to: "/adventure" },
       { label: "Plan your stay", to: "/contact" },
     ],

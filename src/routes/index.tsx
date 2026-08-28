@@ -290,9 +290,9 @@ function VillasPreview() {
     <section className="bg-mist px-6 py-28">
       <Reveal>
         <SectionTitle
-          eyebrow="The Villas"
-          title="Fifteen private residences. One lake."
-          subtitle="Every villa opens to the same silent horizon — the only choice is how much of it you'd like to live in."
+          eyebrow="The Seagot Collection"
+          title="A collection of private houses. One lake."
+          subtitle="Every house opens to the same silent horizon — the only choice is how much of it you'd like to live in."
         />
       </Reveal>
       <div className="mx-auto mt-16 grid max-w-7xl gap-8 md:grid-cols-3">
@@ -338,7 +338,7 @@ function VillasPreview() {
       </div>
       <div className="mt-12 text-center">
         <Link to="/villas" className="btn-ghost-luxe !text-emerald-deep !border-emerald/30 hover:!border-gold hover:!text-gold">
-          View All Villas <ArrowRight size={16} />
+          Explore the Collection <ArrowRight size={16} />
         </Link>
       </div>
     </section>
@@ -492,7 +492,7 @@ function NearbyAttractions() {
 const testimonials = [
   { name: "Ananya & Rohan", where: "Bangalore", quote: "The most peaceful three days of our year. The infinity pool at sunrise is unforgettable." },
   { name: "Prasad Family", where: "Kochi", quote: "Rare to find standard and warmth in the same breath. Our children still talk about the campfire." },
-  { name: "Nikhil M.", where: "Mumbai", quote: "Booked the Presidential Villa for our founders' offsite. Everything, from breakfast to the bonfire, was designed with intent." },
+  { name: "Nikhil M.", where: "Mumbai", quote: "Booked The Banasura Residence for our founders' offsite. Everything, from breakfast to the bonfire, was designed with intent." },
 ];
 
 function Testimonials() {

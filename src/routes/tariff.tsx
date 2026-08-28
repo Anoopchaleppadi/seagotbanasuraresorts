@@ -3,7 +3,6 @@ import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ACCOMMODATION } from "@/lib/accommodation";
-import { VILLAS } from "@/lib/villas";
 import { PriceSplit } from "@/components/PriceSplit";
 import { Clock } from "lucide-react";
 import villaDeluxe from "@/assets/villa-deluxe.jpg";
