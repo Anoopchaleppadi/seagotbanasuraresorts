@@ -51,7 +51,7 @@ function VillasPage() {
                   )}
                 </Link>
                 <div className="flex flex-col">
-                  <p className="text-xs uppercase tracking-[0.28em] text-emerald">{v.villaNumbers.length} {v.villaNumbers.length > 1 ? "villas available" : "villa"} · {v.villaNumbers.join(", ")}</p>
+                  <p className="text-xs uppercase tracking-[0.28em] text-emerald">No. {v.number} · The Seagot Collection</p>
                   <h2 className="mt-3 font-serif text-3xl text-emerald-deep sm:text-4xl">{v.name}</h2>
                   <p className="mt-4 text-charcoal/75">{v.description}</p>
 

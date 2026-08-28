@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { RESORT, waLink, telLink } from "@/lib/resort";
 import logoUrl from "@/assets/seagot-banasura-logo.jpg";
-import { VILLA_UNITS } from "@/lib/villaUnits";
+import { VILLAS } from "@/lib/villas";
 
 export function Footer() {
   return (
@@ -44,11 +44,11 @@ export function Footer() {
           <div>
             <h3 className="text-sm uppercase tracking-[0.28em] text-gold-soft">Stay</h3>
             <ul className="mt-5 space-y-2 text-sm text-white/85">
-              <li><Link to="/villas" className="hover:text-gold-soft">All Villas</Link></li>
-              <li><Link to="/villas/$slug" params={{ slug: "standard-2-bedroom" }} className="hover:text-gold-soft">Standard 2 Bedroom</Link></li>
-              <li><Link to="/villas/$slug" params={{ slug: "deluxe-2-bedroom" }} className="hover:text-gold-soft">Deluxe 2 Bedroom</Link></li>
-              <li><Link to="/villas/$slug" params={{ slug: "three-bedroom-villa" }} className="hover:text-gold-soft">Three Bedroom</Link></li>
-              <li><Link to="/villas/$slug" params={{ slug: "presidential-4-bedroom" }} className="hover:text-gold-soft">Presidential Villa</Link></li>
+              <li><Link to="/villas" className="hover:text-gold-soft">The Seagot Collection</Link></li>
+              <li><Link to="/villas/$slug" params={{ slug: "the-lake-house" }} className="hover:text-gold-soft">The Lake House</Link></li>
+              <li><Link to="/villas/$slug" params={{ slug: "the-signature-house" }} className="hover:text-gold-soft">The Signature House</Link></li>
+              <li><Link to="/villas/$slug" params={{ slug: "the-grand-house" }} className="hover:text-gold-soft">The Grand House</Link></li>
+              <li><Link to="/villas/$slug" params={{ slug: "the-banasura-residence" }} className="hover:text-gold-soft">The Banasura Residence</Link></li>
               <li><Link to="/offers/monsoon" className="hover:text-gold-soft">Monsoon Offers</Link></li>
             </ul>
           </div>
@@ -88,11 +88,11 @@ export function Footer() {
         </div>
 
         <div className="mt-12 rounded-2xl border border-white/15 bg-white/[0.03] p-5">
-          <p className="text-[10px] uppercase tracking-[0.24em] text-gold-soft">Individual Villas</p>
+          <p className="text-[10px] uppercase tracking-[0.24em] text-gold-soft">The Seagot Collection</p>
           <div className="mt-3 flex flex-wrap gap-2 text-xs text-white/75">
-            {VILLA_UNITS.map((u) => (
-              <Link key={u.num} to="/villas/unit/$num" params={{ num: u.num }} className="rounded-full border border-white/15 px-3 py-1 hover:border-gold hover:text-gold-soft">
-                Villa {u.num}
+            {VILLAS.map((v) => (
+              <Link key={v.slug} to="/villas/$slug" params={{ slug: v.slug }} className="rounded-full border border-white/15 px-3 py-1 hover:border-gold hover:text-gold-soft">
+                {v.name}
               </Link>
             ))}
           </div>

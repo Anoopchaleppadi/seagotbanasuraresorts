@@ -188,7 +188,7 @@ function BookingForm() {
 *Children Below 6:* ${d.childrenU6}
 *Check-in:* ${d.checkIn}
 *Check-out:* ${d.checkOut}
-*Preferred Villa:* ${d.villa || "Any"}
+*Preferred Stay:* ${d.villa || "Any"}
 *Rooms Required:* ${d.rooms}
 *Special Requirements:* ${d.requests || "—"}
 
@@ -202,7 +202,7 @@ Please contact me regarding availability.`;
     <>
     <form onSubmit={onSubmit} className="glass rounded-3xl p-8 shadow-luxe">
       <span className="text-xs uppercase tracking-[0.28em] text-emerald">Booking Enquiry</span>
-      <h2 className="mt-2 font-serif text-3xl text-emerald-deep">Reserve your villa</h2>
+      <h2 className="mt-2 font-serif text-3xl text-emerald-deep">Reserve your stay</h2>
       <p className="mt-1 text-sm text-muted-foreground">We reply personally within minutes.</p>
 
       <div className="mt-8 grid gap-5 sm:grid-cols-2">
@@ -214,7 +214,7 @@ Please contact me regarding availability.`;
 
         <SelectField label="Group Type" name="groupType" options={["Family", "Bachelors", "Mixed Group"]} required />
         <SelectField
-          label="Preferred Villa"
+          label="Preferred Stay"
           name="villa"
           options={["Any", ...VILLAS.map((v) => v.name)]}
         />
@@ -304,7 +304,7 @@ function ConfirmationModal({
           <Row label="Check-out" value={data.checkOut} />
           <Row label="Nights" value={nights ? String(nights) : "—"} />
           <Row label="Rooms" value={String(data.rooms)} />
-          <Row label="Villa" value={data.villa || "Any"} />
+          <Row label="Stay" value={data.villa || "Any"} />
           <Row label="Group" value={data.groupType} />
           <Row label="Adults" value={String(data.adults)} />
           <Row label="Children" value={String(data.children612 + data.childrenU6)} />

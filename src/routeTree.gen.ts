@@ -41,7 +41,6 @@ import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as VillasSlugRouteImport } from './routes/villas/$slug'
 import { Route as OffersMonsoonRouteImport } from './routes/offers.monsoon'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
-import { Route as VillasUnitNumRouteImport } from './routes/villas/unit.$num'
 import { Route as BlogCategoryCatRouteImport } from './routes/blog/category.$cat'
 
 const WeddingsRoute = WeddingsRouteImport.update({
@@ -204,11 +203,6 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const VillasUnitNumRoute = VillasUnitNumRouteImport.update({
-  id: '/villas/unit/$num',
-  path: '/villas/unit/$num',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BlogCategoryCatRoute = BlogCategoryCatRouteImport.update({
   id: '/blog/category/$cat',
   path: '/blog/category/$cat',
@@ -249,7 +243,6 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/villas/': typeof VillasIndexRoute
   '/blog/category/$cat': typeof BlogCategoryCatRoute
-  '/villas/unit/$num': typeof VillasUnitNumRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -285,7 +278,6 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/villas': typeof VillasIndexRoute
   '/blog/category/$cat': typeof BlogCategoryCatRoute
-  '/villas/unit/$num': typeof VillasUnitNumRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -322,7 +314,6 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/villas/': typeof VillasIndexRoute
   '/blog/category/$cat': typeof BlogCategoryCatRoute
-  '/villas/unit/$num': typeof VillasUnitNumRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -360,7 +351,6 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/villas/'
     | '/blog/category/$cat'
-    | '/villas/unit/$num'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -396,7 +386,6 @@ export interface FileRouteTypes {
     | '/blog'
     | '/villas'
     | '/blog/category/$cat'
-    | '/villas/unit/$num'
   id:
     | '__root__'
     | '/'
@@ -432,7 +421,6 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/villas/'
     | '/blog/category/$cat'
-    | '/villas/unit/$num'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -468,7 +456,6 @@ export interface RootRouteChildren {
   BlogIndexRoute: typeof BlogIndexRoute
   VillasIndexRoute: typeof VillasIndexRoute
   BlogCategoryCatRoute: typeof BlogCategoryCatRoute
-  VillasUnitNumRoute: typeof VillasUnitNumRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -697,13 +684,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/villas/unit/$num': {
-      id: '/villas/unit/$num'
-      path: '/villas/unit/$num'
-      fullPath: '/villas/unit/$num'
-      preLoaderRoute: typeof VillasUnitNumRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/blog/category/$cat': {
       id: '/blog/category/$cat'
       path: '/blog/category/$cat'
@@ -758,7 +738,6 @@ const rootRouteChildren: RootRouteChildren = {
   BlogIndexRoute: BlogIndexRoute,
   VillasIndexRoute: VillasIndexRoute,
   BlogCategoryCatRoute: BlogCategoryCatRoute,
-  VillasUnitNumRoute: VillasUnitNumRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
