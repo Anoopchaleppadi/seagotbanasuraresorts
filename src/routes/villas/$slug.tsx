@@ -179,10 +179,8 @@ function VillaDetail() {
               </div>
 
               <div className="rounded-3xl border border-emerald/15 bg-white p-6">
-                <p className="text-xs uppercase tracking-[0.24em] text-emerald">Villa Numbers</p>
-                <p className="mt-2 font-serif text-lg text-emerald-deep">
-                  {v.villaNumbers.map((n) => `#${n}`).join(" · ")}
-                </p>
+                <p className="text-xs uppercase tracking-[0.24em] text-emerald">The Collection</p>
+                <p className="mt-2 font-serif text-lg text-emerald-deep">{v.tagline}</p>
               </div>
             </div>
           </div>
