@@ -46,7 +46,6 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/cancellation-policy", changefreq: "yearly" as any, priority: "0.3" },
           { path: "/refund-policy", changefreq: "yearly" as any, priority: "0.3" },
           ...VILLAS.map((v) => ({ path: `/villas/${v.slug}`, changefreq: "monthly" as const, priority: "0.8" })),
-          ...VILLA_UNITS.map((u) => ({ path: `/villas/unit/${u.num}`, changefreq: "monthly" as const, priority: "0.7" })),
           ...BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, changefreq: "monthly" as const, priority: "0.6" })),
           ...BLOG_CATEGORIES.map((c) => ({ path: `/blog/category/${c.toLowerCase()}`, changefreq: "monthly" as const, priority: "0.5" })),
         ];
