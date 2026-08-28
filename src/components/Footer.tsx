@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { RESORT, waLink, telLink } from "@/lib/resort";
 import logoUrl from "@/assets/seagot-banasura-logo.jpg";
-import { VILLA_UNITS } from "@/lib/villaUnits";
+import { VILLAS } from "@/lib/villas";
 
 export function Footer() {
   return (
