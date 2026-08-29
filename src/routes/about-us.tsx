@@ -8,7 +8,7 @@ import heroLake from "@/assets/hero-lake.jpg";
 import pool from "@/assets/pool.jpg";
 
 const stats = [
-  { icon: Home, label: "15 Standard Villas" },
+  { icon: Home, label: "15 Lake House" },
   { icon: Award, label: "40 Elegant Rooms" },
   { icon: Users, label: "150 Guest Capacity" },
   { icon: Mountain, label: "Lake View Resort" },

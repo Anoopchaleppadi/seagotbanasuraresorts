@@ -40,7 +40,7 @@ export const Route = createFileRoute("/")({
 });
 
 const stats = [
-  { label: "Standard Villas", value: "15" },
+  { label: "Lake House", value: "15" },
   { label: "Guest Rooms", value: "40" },
   { label: "Guest Capacity", value: "150" },
   { label: "Infinity Pool", value: "1" },
@@ -183,7 +183,7 @@ function MonsoonOfferBanner() {
                 <Sparkles size={22} />
               </div>
               <div>
-                <p className="text-xs uppercase tracking-[0.28em] text-emerald">Weekday Monsoon Offer</p>
+                <p className="text-xs uppercase tracking-[0.28em] text-emerald">Weekdays Offer</p>
                 <h3 className="mt-1 font-serif text-xl text-emerald-deep sm:text-2xl">
                   Save 25% on villa stays · Sun–Thu
                 </h3>
