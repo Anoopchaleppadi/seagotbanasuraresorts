@@ -6,6 +6,7 @@ import { TopBar } from "./TopBar";
 import { OnamWelcome } from "./OnamWelcome";
 import { RecruitmentCard } from "./RecruitmentCard";
 import { AvailabilityAlert } from "./AvailabilityAlert";
+import { JanmashtamiPopup } from "./JanmashtamiPopup";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
@@ -18,6 +19,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <FloatingButtons />
       <OnamWelcome />
       <RecruitmentCard />
+      <JanmashtamiPopup />
     </div>
   );
 }

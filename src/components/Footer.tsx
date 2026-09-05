@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-gradient-emerald text-white">
       <div className="pointer-events-none absolute inset-0 opacity-20 [background:radial-gradient(60%_50%_at_50%_0%,white,transparent)]" />
-      <div className="relative mx-auto max-w-7xl px-6 py-20">
+      <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20">
         <div className="grid gap-12 md:grid-cols-5">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3">
@@ -99,8 +99,8 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/15 pt-8 text-xs text-white/60 md:flex-row">
-          <p>© {new Date().getFullYear()} Seagot Banasura Resorts. All rights reserved.</p>
-          <div className="flex gap-6">
+          <p className="text-center md:text-left">© {new Date().getFullYear()} Seagot Banasura Resorts. All rights reserved.</p>
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 md:justify-end">
             <Link to="/faq" className="hover:text-gold-soft">FAQ</Link>
             <Link to="/privacy-policy" className="hover:text-gold-soft">Privacy</Link>
             <Link to="/terms-and-conditions" className="hover:text-gold-soft">Terms</Link>

@@ -117,6 +117,14 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
+    overflow-x: hidden;
+  }
+
+  /* Mobile safety: form controls must never force a container wider than the
+     viewport (date/number inputs have a large intrinsic width on mobile). */
+  input, select, textarea {
+    min-width: 0;
+    max-width: 100%;
   }
 
   h1, h2, h3, h4, h5 {
@@ -406,4 +414,56 @@
 
 @media (prefers-reduced-motion: reduce) {
   .avail-petal { display: none; }
+}
+
+/* ── Temporary Krishna Janmashtami popup (auto-hides after campaign end) ── */
+@keyframes krishnaFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes krishnaFadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+@keyframes krishnaPopIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes krishnaPopOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(16px) scale(0.96); }
+}
+
+@keyframes krishnaFloat {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-7px) rotate(1.5deg); }
+}
+
+@keyframes krishnaAura {
+  0%, 100% { opacity: 0.45; transform: scale(0.94); }
+  50% { opacity: 0.8; transform: scale(1.06); }
+}
+
+@keyframes krishnaSpark {
+  0% { opacity: 0; transform: translate3d(0, 20%, 0) scale(0.6); }
+  25% { opacity: 0.9; }
+  100% { opacity: 0; transform: translate3d(0.8rem, -180%, 0) scale(1.1); }
+}
+
+.krishna-float { animation: krishnaFloat 4.5s ease-in-out infinite; will-change: transform; }
+
+.krishna-aura {
+  background: radial-gradient(circle, color-mix(in oklab, var(--gold) 55%, transparent) 0%, transparent 68%);
+  animation: krishnaAura 3.6s ease-in-out infinite;
+  filter: blur(2px);
+}
+
+@utility krishna-spark {
+  position: absolute;
+  bottom: 8%;
+  border-radius: 999px;
+  background: var(--gold);
+  animation: krishnaSpark linear infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .krishna-spark, .krishna-aura { display: none; }
+  .krishna-float { animation: none; }
 }
