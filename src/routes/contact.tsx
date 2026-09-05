@@ -58,7 +58,7 @@ function ContactPage() {
       </section>
 
       <section className="bg-mist px-6 py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-7xl gap-10 [&>*]:min-w-0 lg:grid-cols-3">
           <Reveal>
             <ContactCard />
           </Reveal>
@@ -106,13 +106,13 @@ function ContactPage() {
 
 function ContactCard() {
   return (
-    <div className="glass rounded-3xl p-8 shadow-luxe space-y-6">
+    <div className="glass rounded-3xl p-5 shadow-luxe space-y-5 sm:p-8 sm:space-y-6">
       <div>
         <span className="text-xs uppercase tracking-[0.28em] text-emerald">Reach us</span>
         <h2 className="mt-2 font-serif text-3xl text-emerald-deep">Talk to a real person.</h2>
       </div>
       <a href={waLink()} target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-2xl border border-emerald/15 bg-white/60 p-4 transition hover:border-gold">
-        <span className="grid h-11 w-11 place-items-center rounded-full text-white" style={{ background: "linear-gradient(135deg, #25D366, #128C7E)" }}>
+        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full text-white" style={{ background: "linear-gradient(135deg, #25D366, #128C7E)" }}>
           <MessageCircle size={18} />
         </span>
         <div><div className="text-xs uppercase tracking-[0.22em] text-muted-foreground">WhatsApp</div><div className="text-emerald-deep font-medium">+91 {RESORT.whatsapp}</div></div>
@@ -123,17 +123,17 @@ function ContactCard() {
         { label: "Sales", num: RESORT.phones.sales },
       ].map((c) => (
         <a key={c.num} href={telLink(c.num)} className="flex items-center gap-3 rounded-2xl border border-emerald/15 bg-white/60 p-4 transition hover:border-gold">
-          <span className="grid h-11 w-11 place-items-center rounded-full bg-gradient-emerald text-white"><Phone size={18} /></span>
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gradient-emerald text-white"><Phone size={18} /></span>
           <div><div className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{c.label}</div><div className="text-emerald-deep font-medium">+91 {c.num}</div></div>
         </a>
       ))}
       <a href={`mailto:${RESORT.email}`} className="flex items-center gap-3 rounded-2xl border border-emerald/15 bg-white/60 p-4 transition hover:border-gold">
-        <span className="grid h-11 w-11 place-items-center rounded-full bg-gradient-gold text-charcoal"><Mail size={18} /></span>
-        <div><div className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Email</div><div className="text-emerald-deep font-medium">{RESORT.email}</div></div>
+        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gradient-gold text-charcoal"><Mail size={18} /></span>
+        <div className="min-w-0"><div className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Email</div><div className="break-all text-sm text-emerald-deep font-medium sm:text-base">{RESORT.email}</div></div>
       </a>
       <div className="flex items-start gap-3 rounded-2xl border border-emerald/15 bg-white/60 p-4">
-        <span className="grid h-11 w-11 place-items-center rounded-full bg-emerald text-white"><MapPin size={18} /></span>
-        <div><div className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Address</div><div className="text-charcoal/85 text-sm mt-0.5">{RESORT.address}</div></div>
+        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-emerald text-white"><MapPin size={18} /></span>
+        <div className="min-w-0"><div className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Address</div><div className="text-charcoal/85 text-sm mt-0.5">{RESORT.address}</div></div>
       </div>
     </div>
   );
@@ -200,12 +200,12 @@ Please contact me regarding availability.`;
 
   return (
     <>
-    <form onSubmit={onSubmit} className="glass rounded-3xl p-8 shadow-luxe">
+    <form onSubmit={onSubmit} className="glass rounded-3xl p-5 shadow-luxe sm:p-8">
       <span className="text-xs uppercase tracking-[0.28em] text-emerald">Booking Enquiry</span>
       <h2 className="mt-2 font-serif text-3xl text-emerald-deep">Reserve your stay</h2>
       <p className="mt-1 text-sm text-muted-foreground">We reply personally within minutes.</p>
 
-      <div className="mt-8 grid gap-5 sm:grid-cols-2">
+      <div className="mt-8 grid gap-5 [&>*]:min-w-0 sm:grid-cols-2">
         <Field label="Full Name" name="name" error={errors.name} required />
         <Field label="Mobile Number" name="mobile" type="tel" error={errors.mobile} required />
         <Field label="WhatsApp Number" name="whatsapp" type="tel" error={errors.whatsapp} required />
@@ -281,7 +281,7 @@ function ConfirmationModal({
   };
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-emerald-deep/60 px-4 py-8 backdrop-blur-sm animate-fade-up" role="dialog" aria-modal="true" aria-labelledby="booking-confirm-title">
-      <div className="relative max-h-full w-full max-w-lg overflow-y-auto rounded-3xl bg-white p-8 shadow-luxe">
+      <div className="relative max-h-full w-full max-w-lg overflow-y-auto rounded-3xl bg-white p-5 shadow-luxe sm:p-8">
         <button onClick={onClose} aria-label="Close" className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full text-charcoal/60 transition hover:bg-mist hover:text-charcoal">
           <X size={18} />
         </button>
