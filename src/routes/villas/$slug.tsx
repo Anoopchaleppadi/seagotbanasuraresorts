@@ -95,6 +95,8 @@ function VillaDetail() {
         </div>
       </section>
 
+      <VillaGallery villa={v} />
+
       <section className="bg-mist px-6 py-20">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-14">
