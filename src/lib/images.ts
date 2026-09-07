@@ -47,3 +47,33 @@ export const IMAGES = {
 } as const;
 
 export type ImageRef = string;
+
+/**
+ * Per-villa photo gallery — auto-discovered.
+ *
+ * Drop any .jpg/.jpeg/.png/.webp photo into
+ *   src/assets/villas/<villa-slug>/
+ * and it appears on that villa's detail page automatically (no code edit).
+ * Files are ordered by filename, so prefix with numbers to control the order:
+ *   01-exterior.jpg, 02-bedroom.jpg, 03-living.jpg, 04-balcony.jpg, 05-view.jpg
+ */
+const villaGlob = import.meta.glob(
+  "../assets/villas/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG}",
+  { eager: true, query: "?url", import: "default" },
+) as Record<string, string>;
+
+const villaGalleryEntries: Record<string, { path: string; url: string }[]> = {};
+for (const [path, url] of Object.entries(villaGlob)) {
+  const match = path.match(/villas\/([^/]+)\//);
+  if (!match) continue;
+  const slug = match[1];
+  (villaGalleryEntries[slug] ??= []).push({ path, url });
+}
+for (const slug of Object.keys(villaGalleryEntries)) {
+  villaGalleryEntries[slug].sort((a, b) => a.path.localeCompare(b.path));
+}
+
+/** Returns the ordered list of gallery photo URLs for a villa slug. */
+export function villaGallery(slug: string): string[] {
+  return (villaGalleryEntries[slug] ?? []).map((e) => e.url);
+}
