@@ -1,9 +1,11 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { useCallback, useEffect, useState } from "react";
 import { PriceSplit } from "@/components/PriceSplit";
-import { ArrowRight, BedDouble, Users, Bath, Sparkles, Check, MapPin, MessageCircle } from "lucide-react";
+import { ArrowRight, BedDouble, Users, Bath, Sparkles, Check, MapPin, MessageCircle, X, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
 import { getVilla, VILLAS, type Villa } from "@/lib/villas";
+import { villaGallery } from "@/lib/images";
 import { ATTRACTIONS } from "@/lib/experiences";
 import { RESORT, waLink, telLink } from "@/lib/resort";
 
