@@ -254,3 +254,130 @@ function Stat({ icon: Icon, label, value }: { icon: any; label: string; value: s
     </div>
   );
 }
+
+/** Per-villa photo gallery with a main image, thumbnail strip, and full-screen lightbox. */
+function VillaGallery({ villa: v }: { villa: Villa }) {
+  const folder = villaGallery(v.slug);
+  const gallery = folder.length ? folder : [v.image];
+  const [active, setActive] = useState(0);
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
+  const close = useCallback(() => setLightbox(null), []);
+  const step = useCallback(
+    (d: number) => setLightbox((i) => (i === null ? i : (i + d + gallery.length) % gallery.length)),
+    [gallery.length],
+  );
+
+  useEffect(() => {
+    if (lightbox === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") step(1);
+      if (e.key === "ArrowLeft") step(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox, close, step]);
+
+  if (gallery.length === 0) return null;
+  const lb = lightbox !== null ? gallery[lightbox] : null;
+
+  return (
+    <section className="bg-white px-6 py-20">
+      <div className="mx-auto max-w-7xl">
+        <Reveal>
+          <div className="text-center">
+            <span className="divider-gold">Photo Gallery</span>
+            <h2 className="mt-4 font-serif text-3xl text-emerald-deep sm:text-4xl">Inside {v.name}</h2>
+            <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
+              A closer look at the space, the light and the view.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-10 grid gap-4 lg:grid-cols-[1.6fr_1fr]">
+            <div className="relative overflow-hidden rounded-3xl shadow-luxe">
+              <img
+                src={gallery[active]}
+                alt={`${v.name} — photo ${active + 1}`}
+                className="aspect-[16/10] h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <button
+                onClick={() => setLightbox(active)}
+                className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-full glass-dark px-4 py-2 text-xs text-white transition hover:text-gold"
+                aria-label="View full screen"
+              >
+                <Expand size={14} /> Full screen
+              </button>
+            </div>
+            <div className="grid grid-cols-4 gap-3 lg:grid-cols-2">
+              {gallery.map((src, i) => (
+                <button
+                  key={`${src}-${i}`}
+                  onClick={() => setActive(i)}
+                  className={`group overflow-hidden rounded-2xl transition ${
+                    active === i ? "ring-2 ring-gold" : "ring-1 ring-emerald/10 hover:ring-gold/50"
+                  }`}
+                  aria-label={`View photo ${i + 1}`}
+                >
+                  <img
+                    src={src}
+                    alt={`${v.name} thumbnail ${i + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="aspect-square h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </div>
+
+      {lb && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-xl p-6 animate-fade-up"
+          onClick={close}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${v.name} photo gallery`}
+        >
+          <button
+            aria-label="Close"
+            className="absolute right-6 top-6 grid h-11 w-11 place-items-center rounded-full glass-dark text-white"
+            onClick={close}
+          >
+            <X size={20} />
+          </button>
+          <span className="absolute left-6 top-6 rounded-full glass-dark px-4 py-2 text-xs tracking-[0.2em] uppercase text-white/90">
+            {v.name} · {(lightbox ?? 0) + 1} / {gallery.length}
+          </span>
+          <button
+            aria-label="Previous photo"
+            className="absolute left-4 top-1/2 -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full glass-dark text-white transition hover:text-gold"
+            onClick={(e) => { e.stopPropagation(); step(-1); }}
+          >
+            <ChevronLeft size={22} />
+          </button>
+          <button
+            aria-label="Next photo"
+            className="absolute right-4 top-1/2 -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full glass-dark text-white transition hover:text-gold"
+            onClick={(e) => { e.stopPropagation(); step(1); }}
+          >
+            <ChevronRight size={22} />
+          </button>
+          <figure className="max-w-5xl" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={lb}
+              alt={`${v.name} — photo ${(lightbox ?? 0) + 1}`}
+              className="max-h-[80vh] max-w-full rounded-2xl object-contain shadow-luxe"
+            />
+          </figure>
+        </div>
+      )}
+    </section>
+  );
+}
