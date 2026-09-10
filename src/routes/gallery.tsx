@@ -7,7 +7,7 @@ import { GALLERY_DATA } from "@/lib/gallery";
 import { IMAGES, galleryPhotoList } from "@/lib/images";
 
 /** Merge auto-discovered folder photos with curated GALLERY_DATA, deduped by src URL. */
-const ALL_GALLERY = (() => {
+const ALL_GALLERY: { src: string; category: string; alt: string; caption?: string }[] = (() => {
   const folder = galleryPhotoList().map((p) => ({ src: p.src, category: p.category, alt: p.alt }));
   const seen = new Set(folder.map((g) => g.src));
   const merged = [...folder];
