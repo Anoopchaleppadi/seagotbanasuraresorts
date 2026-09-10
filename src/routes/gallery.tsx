@@ -1,10 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
-import { GALLERY_DATA, GALLERY_CATEGORIES } from "@/lib/gallery";
-import { IMAGES } from "@/lib/images";
+import { GALLERY_DATA } from "@/lib/gallery";
+import { IMAGES, galleryPhotoList } from "@/lib/images";
+
+/** Merge auto-discovered folder photos with curated GALLERY_DATA, deduped by src URL. */
+const ALL_GALLERY: { src: string; category: string; alt: string; caption?: string }[] = (() => {
+  const folder = galleryPhotoList().map((p) => ({ src: p.src, category: p.category, alt: p.alt }));
+  const seen = new Set(folder.map((g) => g.src));
+  const merged = [...folder];
+  for (const g of GALLERY_DATA) {
+    if (!seen.has(g.src)) {
+      seen.add(g.src);
+      merged.push(g);
+    }
+  }
+  return merged;
+})();
+
+const GALLERY_CATEGORIES = ["All", ...Array.from(new Set(ALL_GALLERY.map((g) => g.category)))];
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -26,7 +42,7 @@ function GalleryPage() {
   const [cat, setCat] = useState("All");
   const [lightbox, setLightbox] = useState<number | null>(null);
 
-  const filtered = cat === "All" ? GALLERY_DATA : GALLERY_DATA.filter((g) => g.category === cat);
+  const filtered = cat === "All" ? ALL_GALLERY : ALL_GALLERY.filter((g) => g.category === cat);
 
   const close = useCallback(() => setLightbox(null), []);
   const step = useCallback(
