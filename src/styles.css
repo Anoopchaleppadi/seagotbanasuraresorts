@@ -336,45 +336,6 @@
   animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-/* ── Temporary Onam welcome experience (auto-expires 2026-08-30) ── */
-@keyframes onamPetalFall {
-  0% { opacity: 0; transform: translate3d(0, -12vh, 0) rotate(0deg); }
-  10% { opacity: 0.9; }
-  100% { opacity: 0; transform: translate3d(var(--drift, 4vw), 112vh, 0) rotate(320deg); }
-}
-
-@keyframes onamBloom {
-  from { opacity: 0; transform: scale(0.6) rotate(-12deg); }
-  to { opacity: 1; transform: scale(1) rotate(0deg); }
-}
-
-@keyframes onamRingSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes onamRise {
-  from { opacity: 0; transform: translateY(24px); filter: blur(6px); }
-  to { opacity: 1; transform: translateY(0); filter: blur(0); }
-}
-
-@keyframes onamScaleIn {
-  from { opacity: 0; transform: translateY(18px) scale(0.96); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@utility onam-petal {
-  position: absolute;
-  top: -10vh;
-  border-radius: 60% 0 60% 0;
-  animation: onamPetalFall linear infinite;
-  will-change: transform, opacity;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .onam-petal { display: none; }
-}
-
 /* ── Temporary recruitment promotion (toggle via JOB_OPENING_ACTIVE) ── */
 @keyframes jobSlideIn {
   from { opacity: 0; transform: translateY(24px) scale(0.96); }
@@ -414,5 +375,261 @@
 
 @media (prefers-reduced-motion: reduce) {
   .avail-petal { display: none; }
+}
+
+/* ── Temporary Dasara 2026 cinematic opening ── */
+body.dasara-open { overflow: hidden; }
+
+.dasara-opening {
+  --dasara-gold: oklch(0.82 0.15 84);
+  --dasara-cream: oklch(0.96 0.035 86);
+  --dasara-blue: oklch(0.35 0.13 247);
+  --dasara-peacock: oklch(0.42 0.11 206);
+  --dasara-maroon: oklch(0.29 0.1 20);
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--dasara-maroon);
+  color: var(--dasara-cream);
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  isolation: isolate;
+}
+
+.dasara-opening-leaving { opacity: 0; transform: scale(1.018); pointer-events: none; }
+
+.dasara-background {
+  position: absolute;
+  inset: -2%;
+  background-position: center;
+  background-size: cover;
+  filter: brightness(0.26) saturate(0.82);
+  transform: scale(1.07);
+  animation: dasaraLandscapeReveal 2.8s ease-out forwards;
+}
+
+.dasara-color-grade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, color-mix(in oklab, var(--dasara-blue) 38%, transparent), transparent 45%, color-mix(in oklab, var(--dasara-maroon) 28%, transparent)),
+    linear-gradient(180deg, color-mix(in oklab, var(--dasara-blue) 26%, transparent), transparent 38%, color-mix(in oklab, var(--emerald-deep) 62%, transparent)),
+    linear-gradient(0deg, oklch(0.12 0.04 180 / 0.76), transparent 48%);
+  animation: dasaraWarmLight 2.8s ease-out 1s both;
+}
+
+.dasara-atmosphere, .dasara-particles, .dasara-petals { position: absolute; inset: 0; pointer-events: none; }
+.dasara-atmosphere { overflow: hidden; }
+
+.dasara-mist {
+  position: absolute;
+  left: -20%;
+  width: 140%;
+  height: 22%;
+  border-radius: 50%;
+  background: linear-gradient(90deg, transparent, oklch(0.92 0.025 220 / 0.19), transparent);
+  filter: blur(20px);
+  opacity: 0;
+  animation: dasaraMistDrift 9s ease-in-out 0.45s infinite alternate;
+}
+.dasara-mist-one { top: 29%; }
+.dasara-mist-two { top: 45%; animation-delay: 0.9s; animation-direction: alternate-reverse; }
+
+.dasara-light-rays {
+  position: absolute;
+  inset: -20% 12% 20% 38%;
+  background: conic-gradient(from 196deg at 50% 0%, transparent, oklch(0.87 0.14 84 / 0.13), transparent 13%, oklch(0.87 0.14 84 / 0.08), transparent 27%);
+  filter: blur(8px);
+  opacity: 0;
+  animation: dasaraLightRays 2s ease-out 1.1s forwards;
+}
+
+.dasara-water-shimmer {
+  position: absolute;
+  left: 12%;
+  right: 8%;
+  bottom: 8%;
+  height: 30%;
+  background: repeating-linear-gradient(172deg, transparent 0 12px, oklch(0.86 0.11 83 / 0.08) 13px 14px, transparent 15px 28px);
+  mask-image: linear-gradient(90deg, transparent, black 35%, black 70%, transparent);
+  opacity: 0;
+  animation: dasaraWater 5s ease-in-out 0.8s infinite alternate;
+}
+
+.dasara-particles span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--dasara-gold);
+  box-shadow: 0 0 10px var(--dasara-gold);
+  opacity: 0;
+  animation: dasaraSparkle ease-in-out infinite;
+}
+
+.dasara-petals span {
+  position: absolute;
+  top: -4%;
+  border-radius: 70% 10% 70% 10%;
+  background: linear-gradient(145deg, oklch(0.78 0.18 61), oklch(0.69 0.2 42));
+  opacity: 0;
+  animation: dasaraPetalFall linear infinite;
+}
+
+.dasara-skip {
+  position: absolute;
+  z-index: 8;
+  top: max(1rem, env(safe-area-inset-top));
+  right: max(1rem, env(safe-area-inset-right));
+  min-height: 44px;
+  padding: 0 0.8rem;
+  border: 1px solid oklch(1 0 0 / 0.3);
+  border-radius: 999px;
+  background: oklch(0.1 0.035 220 / 0.35);
+  backdrop-filter: blur(12px);
+  color: var(--dasara-cream);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.dasara-skip:hover, .dasara-skip:focus-visible { border-color: var(--dasara-gold); background: oklch(0.1 0.035 220 / 0.65); outline: none; }
+
+.dasara-brand {
+  position: absolute;
+  z-index: 6;
+  top: max(1rem, env(safe-area-inset-top));
+  left: max(1rem, env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  opacity: 0;
+  animation: dasaraBrandReveal 0.9s ease-out 1.2s forwards;
+}
+.dasara-logo-shell {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--dasara-gold) 55%, transparent);
+  border-radius: 50%;
+  background: var(--dasara-cream);
+  box-shadow: 0 0 28px color-mix(in oklab, var(--dasara-gold) 38%, transparent);
+}
+.dasara-logo-shell img { width: 42px; height: 42px; object-fit: contain; }
+.dasara-brand-copy { font-family: var(--font-serif); font-size: 1rem; text-shadow: 0 2px 16px oklch(0.08 0.03 210 / 0.8); }
+
+.dasara-elephant {
+  position: absolute;
+  z-index: 2;
+  right: 2.5%;
+  bottom: 4%;
+  width: min(31vw, 420px);
+  color: var(--dasara-gold);
+  filter: drop-shadow(0 0 18px color-mix(in oklab, var(--dasara-gold) 25%, transparent));
+  opacity: 0;
+  animation: dasaraElephantReveal 1.4s ease-out 1.7s forwards, dasaraElephantFloat 6s ease-in-out 3.2s infinite;
+}
+
+.dasara-lamp { position: absolute; z-index: 5; bottom: 4.5%; width: 56px; height: 88px; color: var(--dasara-gold); opacity: 0; animation: dasaraOrnamentReveal 1s ease-out 1.8s forwards; }
+.dasara-lamp-left { left: 4%; }
+.dasara-lamp-right { right: 4%; }
+.dasara-flame { position: absolute; left: 22px; top: 0; width: 13px; height: 23px; border-radius: 70% 30% 65% 35%; background: linear-gradient(var(--dasara-cream), oklch(0.78 0.18 61)); box-shadow: 0 0 28px oklch(0.82 0.16 70 / 0.8); animation: dasaraFlame 1.8s ease-in-out infinite alternate; }
+.dasara-lamp-bowl { position: absolute; top: 22px; left: 6px; width: 44px; height: 18px; border-radius: 0 0 50% 50%; border-bottom: 4px solid currentColor; }
+.dasara-lamp-stem { position: absolute; top: 40px; left: 27px; width: 2px; height: 40px; background: currentColor; box-shadow: -12px 39px 0 1px currentColor, 12px 39px 0 1px currentColor; }
+
+.dasara-content {
+  position: relative;
+  z-index: 5;
+  width: min(92%, 760px);
+  min-height: 100dvh;
+  margin-inline: auto;
+  padding: 5.7rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.dasara-pattern { width: min(360px, 76vw); height: 12px; margin-bottom: 0.8rem; background: repeating-linear-gradient(90deg, transparent 0 12px, var(--dasara-gold) 13px 14px, transparent 15px 26px); opacity: 0; mask-image: linear-gradient(90deg, transparent, black, transparent); animation: dasaraCopyReveal 0.8s ease-out 1.75s forwards; }
+.dasara-badge { margin: 0; padding: 0.38rem 0.8rem; border: 1px solid color-mix(in oklab, var(--dasara-gold) 55%, transparent); border-radius: 999px; background: oklch(0.16 0.06 217 / 0.38); backdrop-filter: blur(8px); color: var(--dasara-gold); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0; animation: dasaraCopyReveal 0.8s ease-out 1.9s forwards; }
+.dasara-kicker { margin-top: 0.85rem; margin-bottom: 0; color: var(--dasara-cream); font-size: clamp(0.7rem, 1.3vw, 0.88rem); font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0; animation: dasaraCopyReveal 0.8s ease-out 2.05s forwards; }
+.dasara-content h2 { margin: 0.55rem 0 0; max-width: 760px; font-family: var(--font-serif); font-size: clamp(2.65rem, 6.3vw, 5.9rem); font-weight: 500; line-height: 0.88; letter-spacing: 0; text-wrap: balance; text-shadow: 0 5px 30px oklch(0.1 0.04 215 / 0.85); opacity: 0; animation: dasaraHeadlineReveal 1s cubic-bezier(0.22, 1, 0.36, 1) 2.2s forwards; }
+.dasara-content h2 span { display: block; color: var(--dasara-gold); font-size: 0.62em; font-style: italic; line-height: 1.15; }
+.dasara-supporting { margin: 1rem 0 0; max-width: 570px; color: oklch(0.96 0.02 90 / 0.88); font-size: clamp(0.8rem, 1.45vw, 1rem); line-height: 1.55; opacity: 0; animation: dasaraCopyReveal 0.8s ease-out 2.5s forwards; }
+.dasara-kannada { margin-top: 0.85rem; max-width: 600px; color: var(--dasara-cream); opacity: 0; animation: dasaraCopyReveal 0.8s ease-out 2.7s forwards; }
+.dasara-kannada p { margin: 0; font-size: clamp(0.86rem, 1.5vw, 1.05rem); font-weight: 600; }
+.dasara-kannada span { display: block; margin-top: 0.2rem; color: oklch(0.96 0.02 90 / 0.68); font-size: clamp(0.68rem, 1.1vw, 0.78rem); }
+.dasara-actions { margin-top: 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.65rem; opacity: 0; animation: dasaraCopyReveal 0.8s ease-out 2.9s forwards; }
+.dasara-primary, .dasara-secondary { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; border-radius: 999px; padding: 0.8rem 1.25rem; font-size: 0.67rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease; }
+.dasara-primary { border: 1px solid var(--dasara-gold); background: linear-gradient(135deg, oklch(0.87 0.13 87), oklch(0.68 0.16 68)); color: oklch(0.2 0.06 35); box-shadow: 0 8px 32px color-mix(in oklab, var(--dasara-gold) 28%, transparent); }
+.dasara-primary svg { transition: transform 0.25s ease; }
+.dasara-primary:hover, .dasara-primary:focus-visible { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 38px color-mix(in oklab, var(--dasara-gold) 45%, transparent); outline: none; }
+.dasara-primary:hover svg { transform: translateX(3px); }
+.dasara-secondary { border: 1px solid oklch(1 0 0 / 0.4); background: oklch(0.14 0.06 210 / 0.46); backdrop-filter: blur(12px); color: var(--dasara-cream); }
+.dasara-secondary:hover, .dasara-secondary:focus-visible { transform: translateY(-2px); border-color: var(--dasara-gold); background: oklch(0.14 0.06 210 / 0.68); outline: none; }
+.dasara-origin { margin: 0.85rem 0 0; color: var(--dasara-gold); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0; animation: dasaraCopyReveal 0.8s ease-out 3.05s forwards; }
+.dasara-cities { margin: 0.25rem 0 0; color: oklch(0.96 0.02 90 / 0.72); font-size: 0.65rem; letter-spacing: 0.04em; opacity: 0; animation: dasaraCopyReveal 0.8s ease-out 3.15s forwards; }
+.dasara-cities span { margin-inline: 0.25rem; color: var(--dasara-gold); }
+
+@keyframes dasaraLandscapeReveal { from { filter: brightness(0.08) saturate(0.5); transform: scale(1.11); } to { filter: brightness(0.78) saturate(1.08); transform: scale(1.04); } }
+@keyframes dasaraWarmLight { from { opacity: 0.75; filter: saturate(0.7); } to { opacity: 1; filter: saturate(1.08); } }
+@keyframes dasaraMistDrift { 0% { opacity: 0; transform: translate3d(-4%, 8px, 0); } 25% { opacity: 0.55; } 100% { opacity: 0.34; transform: translate3d(5%, -7px, 0); } }
+@keyframes dasaraWater { from { opacity: 0; transform: translateX(-1%); } to { opacity: 0.5; transform: translateX(1%); } }
+@keyframes dasaraLightRays { from { opacity: 0; transform: translateX(-3%) rotate(-2deg); } to { opacity: 1; transform: translateX(0) rotate(0); } }
+@keyframes dasaraSparkle { 0%, 100% { opacity: 0; transform: translateY(10px) scale(0.6); } 50% { opacity: 0.85; transform: translateY(-10px) scale(1); } }
+@keyframes dasaraPetalFall { 0% { opacity: 0; transform: translate3d(0, -5vh, 0) rotate(0); } 14% { opacity: 0.72; } 100% { opacity: 0; transform: translate3d(22px, 108vh, 0) rotate(290deg); } }
+@keyframes dasaraBrandReveal { from { opacity: 0; transform: translateY(-10px); filter: blur(5px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+@keyframes dasaraElephantReveal { from { opacity: 0; transform: translate3d(20px, 12px, 0) scale(0.97); } to { opacity: 0.52; transform: translate3d(0, 0, 0) scale(1); } }
+@keyframes dasaraElephantFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes dasaraOrnamentReveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 0.65; transform: translateY(0); } }
+@keyframes dasaraFlame { from { transform: scale(0.9) rotate(-3deg); } to { transform: scale(1.08) rotate(3deg); } }
+@keyframes dasaraCopyReveal { from { opacity: 0; transform: translateY(12px); filter: blur(4px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+@keyframes dasaraHeadlineReveal { from { opacity: 0; transform: translateY(18px) scale(0.98); filter: blur(7px); } to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
+
+@media (max-width: 767px) {
+  .dasara-content { width: 100%; padding: max(4.4rem, calc(env(safe-area-inset-top) + 3.6rem)) 0.85rem max(1rem, env(safe-area-inset-bottom)); justify-content: center; }
+  .dasara-brand { max-width: calc(100vw - 7.5rem); gap: 0.5rem; }
+  .dasara-logo-shell { width: 40px; height: 40px; }
+  .dasara-logo-shell img { width: 37px; height: 37px; }
+  .dasara-brand-copy { max-width: 9rem; font-size: 0.78rem; line-height: 1.05; }
+  .dasara-content h2 { font-size: clamp(2.05rem, 11.8vw, 3.3rem); line-height: 0.92; }
+  .dasara-pattern { margin-bottom: 0.55rem; }
+  .dasara-badge { padding-block: 0.3rem; font-size: 0.52rem; }
+  .dasara-kicker { margin-top: 0.65rem; }
+  .dasara-supporting { margin-top: 0.75rem; max-width: 22rem; }
+  .dasara-kannada { margin-top: 0.65rem; max-width: 22rem; }
+  .dasara-actions { width: min(100%, 22rem); margin-top: 0.85rem; display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
+  .dasara-primary, .dasara-secondary { width: 100%; min-height: 46px; padding-block: 0.68rem; }
+  .dasara-origin { margin-top: 0.65rem; }
+  .dasara-elephant { right: -6%; bottom: 1%; width: 42vw; opacity: 0; }
+  .dasara-lamp { transform: scale(0.75); transform-origin: bottom; }
+  .dasara-lamp-left { left: -0.25rem; }
+  .dasara-lamp-right { right: -0.25rem; }
+  .dasara-particles span:nth-child(n+9), .dasara-petals span:nth-child(n+8), .dasara-light-rays { display: none; }
+}
+
+@media (max-width: 360px), (max-height: 720px) {
+  .dasara-content { padding-top: 4rem; padding-bottom: 0.55rem; }
+  .dasara-pattern { display: none; }
+  .dasara-content h2 { font-size: clamp(1.85rem, 10.8vw, 2.4rem); }
+  .dasara-supporting { font-size: 0.74rem; line-height: 1.4; }
+  .dasara-kannada p { font-size: 0.75rem; }
+  .dasara-kannada span { font-size: 0.61rem; }
+  .dasara-primary, .dasara-secondary { min-height: 42px; font-size: 0.6rem; }
+  .dasara-origin { font-size: 0.52rem; }
+  .dasara-cities { font-size: 0.58rem; }
+  .dasara-lamp, .dasara-elephant { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dasara-opening *, .dasara-opening *::before, .dasara-opening *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; }
+  .dasara-opening { transition-duration: 0.15s; }
+  .dasara-particles, .dasara-petals, .dasara-mist, .dasara-light-rays, .dasara-water-shimmer { display: none; }
 }
 

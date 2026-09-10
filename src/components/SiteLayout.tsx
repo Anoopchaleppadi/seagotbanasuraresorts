@@ -3,9 +3,9 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { FloatingButtons } from "./FloatingButtons";
 import { TopBar } from "./TopBar";
-import { OnamWelcome } from "./OnamWelcome";
 import { RecruitmentCard } from "./RecruitmentCard";
 import { AvailabilityAlert } from "./AvailabilityAlert";
+import { DasaraOpening } from "./DasaraOpening";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
@@ -16,7 +16,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <main className="flex-1">{children}</main>
       <Footer />
       <FloatingButtons />
-      <OnamWelcome />
+      <DasaraOpening />
       <RecruitmentCard />
     </div>
   );

@@ -21,11 +21,9 @@ function jobWaLink(message?: string) {
 }
 
 export function RecruitmentCard() {
-  const [onamActive, setOnamActive] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const [show, setShow] = useState(false);
 
-  // Coordinate with the Onam overlay: never show while Onam is visible.
   useEffect(() => {
     if (!JOB_OPENING_ACTIVE) return;
     try {
@@ -36,27 +34,13 @@ export function RecruitmentCard() {
     } catch {
       /* storage blocked */
     }
-    const handler = (e: Event) => {
-      const detail = (e as CustomEvent).detail as { active?: boolean } | undefined;
-      setOnamActive(detail?.active === true);
-    };
-    window.addEventListener("sbr:onam-status", handler as EventListener);
-    setOnamActive(
-      (window as unknown as { __sbrOnamActive?: boolean }).__sbrOnamActive === true,
-    );
-    return () => window.removeEventListener("sbr:onam-status", handler as EventListener);
   }, []);
 
-  // Reveal the card once Onam is no longer active (or never was).
   useEffect(() => {
     if (!JOB_OPENING_ACTIVE || dismissed) return;
-    if (onamActive) {
-      setShow(false);
-      return;
-    }
     const t = setTimeout(() => setShow(true), 1200);
     return () => clearTimeout(t);
-  }, [onamActive, dismissed]);
+  }, [dismissed]);
 
   if (!JOB_OPENING_ACTIVE || dismissed || !show) return null;
 
