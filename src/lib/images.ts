@@ -77,3 +77,57 @@ for (const slug of Object.keys(villaGalleryEntries)) {
 export function villaGallery(slug: string): string[] {
   return (villaGalleryEntries[slug] ?? []).map((e) => e.url);
 }
+
+/**
+ * Main Gallery page — auto-discovered photos.
+ *
+ * Drop any .jpg/.jpeg/.png/.webp photo into
+ *   src/assets/gallery/<category>/
+ * and it appears on the /gallery page automatically (no code edit).
+ *
+ * The folder name becomes the filter category (title-cased for display).
+ * Files are ordered by filename, so prefix with numbers to control the order:
+ *   01-aerial.jpg, 02-driveway.jpg, 03-pool-night.jpg ...
+ *
+ * The alt text is derived from the filename (numbers stripped, hyphens to
+ * spaces, title-cased). For richer captions, keep using GALLERY_DATA in
+ * src/lib/gallery.ts — both sources are merged on the gallery page.
+ */
+const galleryGlob = import.meta.glob(
+  "../assets/gallery/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG}",
+  { eager: true, query: "?url", import: "default" },
+) as Record<string, string>;
+
+export interface GalleryPhoto {
+  src: string;
+  category: string;
+  alt: string;
+}
+
+function titleCase(s: string): string {
+  return s
+    .replace(/[-_]/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase())
+    .trim();
+}
+
+function altFromFilename(path: string): string {
+  const file = path.split("/").pop() ?? path;
+  const stem = file.replace(/\.[^.]+$/, "");
+  // strip leading number prefix like "01-"
+  const cleaned = stem.replace(/^\d+[-_\s]*/, "");
+  return titleCase(cleaned) || "Seagot Banasura Resorts";
+}
+
+const galleryPhotos: GalleryPhoto[] = [];
+for (const [path, url] of Object.entries(galleryGlob)) {
+  const match = path.match(/gallery\/([^/]+)\//);
+  const category = match ? titleCase(match[1]) : "Resort";
+  galleryPhotos.push({ src: url, category, alt: altFromFilename(path) });
+}
+galleryPhotos.sort((a, b) => a.src.localeCompare(b.src));
+
+/** Returns all auto-discovered gallery photos, ordered by filename. */
+export function galleryPhotoList(): GalleryPhoto[] {
+  return galleryPhotos;
+}
