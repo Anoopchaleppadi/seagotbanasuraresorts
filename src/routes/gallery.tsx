@@ -42,7 +42,7 @@ function GalleryPage() {
   const [cat, setCat] = useState("All");
   const [lightbox, setLightbox] = useState<number | null>(null);
 
-  const filtered = cat === "All" ? GALLERY_DATA : GALLERY_DATA.filter((g) => g.category === cat);
+  const filtered = cat === "All" ? ALL_GALLERY : ALL_GALLERY.filter((g) => g.category === cat);
 
   const close = useCallback(() => setLightbox(null), []);
   const step = useCallback(
