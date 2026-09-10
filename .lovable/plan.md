@@ -1,65 +1,29 @@
+# Dasara 2026 Cinematic Opening
+
 ## Scope
+- Remove the expired Janmashtami/Onam opening component, its image, storage/event coordination, and opening-only animation styles.
+- Keep ordinary holiday references, availability logic, booking, navigation, pages, pricing, images, and desktop layout unchanged.
+- Add one isolated full-screen Dasara opening layer mounted by the existing site layout.
 
-Extend the existing site — do NOT touch Home, Villas, Experiences, Gallery, or Contact layouts. Preserve the Liquid Glass theme, typography, animations, and color tokens.
+## Experience
+- Use the current twilight pool and Wayanad landscape imagery as the cinematic background, without changing the homepage image.
+- Stage a 3–4 second sequence: dark reveal, mist and water shimmer, warm resort light and logo, restrained festive ornaments, then campaign copy and actions.
+- Present the exact English and Kannada campaign copy, Karnataka city line, campaign badge, skip control, availability action, and existing WhatsApp action.
+- Add a refined lightweight elephant silhouette, lamp motifs, peacock-feather accents, marigold petals, particles, and light rays with CSS/SVG only.
+- Crossfade and subtly scale away to reveal the unchanged page. Skip and Escape dismiss immediately without navigation or reload.
 
-## 1. Header — slim top bar
+## Campaign Rules
+- Define `campaignEnabled`, `campaignStartDate`, and `campaignEndDate` together in one exported configuration.
+- Show the full opening only once per browser session while the campaign is active; returning visits in that session go directly to the site.
+- Make expiry automatic, leaving no overlay or blocked scrolling when inactive.
+- Route “Check Dasara Availability” to the existing booking section and “WhatsApp Us” through the existing resort WhatsApp helper.
 
-Add a `TopBar` component above the existing `Nav`, rendered inside `SiteLayout`.
+## Mobile, Accessibility, and Performance
+- Fit the complete experience at 320, 360, 375, 390, 414, and 430px without horizontal overflow or overlapping controls.
+- Reduce ornament count and motion on small screens; respect `prefers-reduced-motion` with an immediate readable state and shorter exit.
+- Keep controls keyboard accessible, preserve screen-reader access to the underlying site, and avoid focus trapping.
+- Use no video, new dependency, or additional large image.
 
-- Left: three phone numbers (`9747440404`, `9747550505`, `9747880808`) with `tel:` links + phone icon.
-- Middle: address chip "Padinjarathara, Wayanad, Kerala".
-- Right: Instagram, Facebook, WhatsApp icons — open in new tab, `rel="noreferrer"`.
-- Emerald gradient background, gold hover, ~34px tall, hidden on very small screens (address hides first).
-- Adjust `Nav` sticky offset so it sits below the top bar until scroll (top bar scrolls away; nav becomes fixed as today).
-
-## 2. New pages (clean SEO URLs)
-
-All new pages use the existing `LandingPage` template where possible, otherwise a new bespoke section built from existing utilities (`glass`, `btn-luxe`, `Reveal`, `Breadcrumbs`). Each ships full `head()` with title, description, canonical, OG, Twitter, and relevant JSON-LD + BreadcrumbList.
-
-New routes:
-
-- `/about-us` — story, "Why choose us" stat grid (15 Villas · 40 Rooms · 150 Guests · Lake View · Infinity Pool · Nature), Mission & Vision, image sections.
-- `/accommodation` — grid of 6 categories (Standard 2BR, Deluxe 2BR, Standard 3BR, Deluxe 4BR, Family Room w/ Balcony, Family Room w/ Sit Out). Each card: hero image, description, capacity, facilities, Book Now → `/contact#book`.
-- `/resort-amenities` — animated icon cards for all 14 amenities listed.
-- `/adventure-activities` — image cards for each activity + Book Now CTA. (Note: existing `/adventure` route stays; new SEO URL added, old redirected via link update.)
-- `/camping` — hero + feature list + Book Camping button.
-- `/packages` — 8 package cards (Family, Bachelor, Corporate, Weekend, Honeymoon, School, College, Group) with price placeholder, highlights, Book Now.
-- `/offers` — 5 animated offer cards (Monsoon, Weekday, Group, Corporate, Holiday).
-- `/tariff` — elegant pricing table (Category, Capacity, Breakfast, Extra Person, Children, Check-in 2 PM / out 11 AM) + Book Now.
-- `/testimonials` — Google review cards, video testimonial placeholders, guest photo grid, animated carousel + Review schema.
-- `/feedback` — form (Name, Phone, Email, Rating stars, Experience, Suggestions), submit shows success animation (client-only, no backend).
-- `/privacy-policy`, `/terms-and-conditions`, `/cancellation-policy`, `/refund-policy` — long-form legal pages using a shared `LegalPage` component.
-
-Existing routes kept as-is; footer links point to new SEO URLs.
-
-## 3. Footer
-
-Rewrite Quick Links section to match the new URL list. Keep villa/individual-villa block. Add Google Maps embed thumbnail linking out.
-
-## 4. Technical SEO
-
-- Update `sitemap.xml` server route to include all new URLs.
-- `public/robots.txt` — already present; ensure `Sitemap:` line stays optional (no base URL yet).
-- `404` — add `notFoundComponent` on root with branded page.
-- Each new route: canonical (relative), OG/Twitter, JSON-LD (Article/Service/Product/FAQ as appropriate), BreadcrumbList.
-- Add Review schema on `/testimonials`, Offer schema on `/offers`, PriceSpecification hints on `/tariff`.
-- Manifest already exists; leave.
-
-## 5. Performance
-
-- All new `<img>` use `loading="lazy" decoding="async"`.
-- Reuse existing hero images from `src/assets/` where possible; only generate new ones if a category has no suitable existing asset (accommodation categories, camping hero).
-
-## Out of scope
-
-- No Home/Villas/Experiences/Gallery/Contact redesign.
-- No CMS/admin.
-- No new backend — Feedback form is client-only success state.
-- No pricing values wired (placeholders only, per prompt).
-
-## Technical notes
-
-- File names follow flat convention: `src/routes/about-us.tsx`, `accommodation.tsx`, `resort-amenities.tsx`, `adventure-activities.tsx`, `camping.tsx`, `packages.tsx`, `offers.tsx`, `tariff.tsx`, `testimonials.tsx`, `feedback.tsx`, `privacy-policy.tsx`, `terms-and-conditions.tsx`, `cancellation-policy.tsx`, `refund-policy.tsx`.
-- New shared components: `src/components/TopBar.tsx`, `src/components/LegalPage.tsx`.
-- New data: `src/lib/accommodation.ts`, `src/lib/packages.ts`, `src/lib/offers.ts`, `src/lib/amenities.ts`, `src/lib/testimonials.ts`, `src/lib/legal.ts`.
-- Reuse `Breadcrumbs`, `Reveal`, `glass`/`btn-luxe` utilities. No new deps.
+## Verification
+- Verify first visit, returning session, Skip/Escape, both actions, auto-transition, date expiry logic, body scrolling restoration, and absence of old campaign references.
+- Check desktop and all requested mobile widths for overflow, visual clipping, console errors, and unchanged homepage behavior after dismissal.
