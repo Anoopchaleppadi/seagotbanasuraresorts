@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
-import heroTwilightAsset from "@/assets/hero-twilight.jpg.asset.json";
+import heroTwilight from "@/assets/hero-twilight.webp";
 import logo from "@/assets/seagot-banasura-logo.jpg";
 import { waLink } from "@/lib/resort";
 
@@ -185,7 +185,7 @@ export function DasaraOpening() {
     >
       <div
         className="dasara-background"
-        style={{ backgroundImage: `url(${heroTwilightAsset.url})` }}
+        style={{ backgroundImage: `url(${heroTwilight})` }}
         aria-hidden="true"
       />
       <div className="dasara-color-grade" aria-hidden="true" />
