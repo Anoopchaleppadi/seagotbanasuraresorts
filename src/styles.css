@@ -593,6 +593,21 @@ body.dasara-open { overflow: hidden; }
 @keyframes dasaraHeadlineReveal { from { opacity: 0; transform: translateY(18px) scale(0.98); filter: blur(7px); } to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
 
 @media (max-width: 767px) {
+  /* Keep the pool, lake and mountain focal point visible on portrait screens. */
+  .home-hero-image {
+    object-position: 57% center;
+  }
+  .dasara-background {
+    inset: 0;
+    background-position: 57% center;
+    filter: brightness(0.72) saturate(1.04);
+    transform: scale(1.02);
+  }
+  .dasara-color-grade {
+    background:
+      linear-gradient(180deg, color-mix(in oklab, var(--dasara-blue) 16%, transparent), transparent 42%, color-mix(in oklab, var(--emerald-deep) 44%, transparent)),
+      linear-gradient(0deg, oklch(0.12 0.04 180 / 0.56), transparent 52%);
+  }
   .dasara-content { width: 100%; padding: max(4.4rem, calc(env(safe-area-inset-top) + 3.6rem)) 0.85rem max(1rem, env(safe-area-inset-bottom)); justify-content: center; }
   .dasara-brand { max-width: calc(100vw - 7.5rem); gap: 0.5rem; }
   .dasara-logo-shell { width: 40px; height: 40px; }

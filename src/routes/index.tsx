@@ -115,7 +115,7 @@ function Hero() {
         width={1920}
         height={1200}
         fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover ken-burns"
+        className="home-hero-image absolute inset-0 h-full w-full object-cover ken-burns"
       />
       <div className="absolute inset-0 bg-gradient-hero-overlay" />
 
