@@ -3,9 +3,7 @@ import { ArrowRight, Waves, Mountain, Trees, Utensils, Flame, Users, Baby, Gamep
 import heroLake from "@/assets/hero-lake.jpg";
 import aerial from "@/assets/aerial.jpg";
 import pool from "@/assets/pool.jpg";
-import heroTwilightAsset from "@/assets/hero-twilight.jpg.asset.json";
-
-const heroTwilight = heroTwilightAsset.url;
+import heroTwilight from "@/assets/hero-twilight.webp";
 import { VILLAS } from "@/lib/villas";
 import { EXPERIENCES, ATTRACTIONS } from "@/lib/experiences";
 import { GALLERY_DATA as GALLERY } from "@/lib/gallery";
@@ -28,11 +26,9 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Standard lake-view villas by Banasura Sagar Dam." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
-      { property: "og:image", content: `https://seagotbanasuraresorts.lovable.app${heroTwilightAsset.url}` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Seagot Banasura Resorts — Wayanad" },
       { name: "twitter:description", content: "Standard lake-view villas by Banasura Sagar Dam." },
-      { name: "twitter:image", content: `https://seagotbanasuraresorts.lovable.app${heroTwilightAsset.url}` },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
